@@ -1,0 +1,71 @@
+<mat-toolbar color="primary"  class="header">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+  (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{ 'CriticalThinking' | translate }} - {{ 'teacher.title' | translate }}</span>
+  <span class="spacer"></span>
+  <button mat-button [matMenuTriggerFor]="menu">{{language}}</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item
+    *ngFor="let language of languages"
+    (click)="setLanguage(language)"
+    >{{language}}</button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-toolbar class="footer">
+  <span class="spacer"></span>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+  (click)="openDialogAbout()">
+    {{'about' | translate}}
+  </button>
+  <span class="spacer"></span>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+  (click)="openDialogTerms()">
+    {{'terms' | translate}}
+  </button>
+  <span class="spacer"></span>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list role="list" class="side-menu">
+      <a mat-list-item [routerLink]="['/teacher']">
+    		<span matLine>{{'teacher.home' | translate}}</span>
+        <mat-icon>home</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/teacher/profile']">
+    		<span matLine>{{'teacher.profile' | translate}}</span>
+        <mat-icon>person</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/teacher/topics']">
+    		<span matLine>{{'teacher.mytopics' | translate}}</span>
+        <mat-icon>forum</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/teacher/activities']">
+    		<span matLine>{{'teacher.activities' | translate}}</span>
+        <mat-icon>tips_and_updates</mat-icon>
+      </a>
+      <!-- <a mat-list-item [routerLink]="['/teacher/trials']">
+        <span matLine>Trials</span>
+        <mat-icon>science</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/student']">
+    		<span matLine>Student Mode</span>
+        <mat-icon>school</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/admin']">
+    		<span matLine>Admin Mode</span>
+        <mat-icon>admin_panel_settings</mat-icon>
+      </a> -->
+      <a mat-list-item [routerLink]="['/logout']">
+    		<span matLine>{{'teacher.logout' | translate}}</span>
+        <mat-icon>directions_run</mat-icon>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

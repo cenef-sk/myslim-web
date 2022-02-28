@@ -1,0 +1,66 @@
+== conclusion // 45 - 51 diagram
+
+Blížime sa ku koncu nášho stretnutia. Som rád, že sme spolu mohli stráviť čas a vzájomne sa obohatiť. :normal_smile:
+Je nutné  si uvedomiť, že rozvoj kritického myslenia si vyžaduje veľa času a úsilia. Nie je to schopnosť, ktorú sa dokážeme naučiť za noc.:think_smile:
+* [Ďalej]
+
+Základom procesu kritického myslenia je aktívne premýšľanie o prijímaných informáciách a dátach, ich aktívne posudzovanie, kladenie otázok, zohľadňujúc viaceré možné perspektívy, možný vplyv vlastných stereotypov, naučených predpokladov či predsudkov, ale aj prípadné záujmy tých, ktorí nám informácie sprostredkúvajú.
+* [Ďalej]
+//Poďme si ešte zhrnúť, s čím sme pri hľadaní odpovedí k téme {hypothesis} pracovali :think_smile:
+//* [Ďalej]
+
+//Štatistika #statistics//(počet zdrojov, info o autoroch, správne odpovede, porovnanie s ostatnými v triede...)
+// #statistics img to click
+//* [Ďalej]
+Pri práci s článkami a sledovaní diskusií môžeme natrafiť na odlišnosť názorov, iné postoje a pohľady k riešenej téme.
+Odlišnosť názorov môžu viesť k šíreniu nenávistných prejavov a hnevu. :sad_smile: Je preto dôležité si uvedomiť svoju rolu v online prostredí ako zodpovedného „digitálneho občana“.
+
+* [Ďalej]
+//Hodnotenie <>
+// mozno tu pojde #questionaire
+// TODO podmienka
+
+{name} som rád, že sme spolu mohli tráviť čas pri vzdelávaní sa o kritickom myslení, mediálnej gramotnosti a ďalších témach týkajúcich sa online prostredia. :normal_smile:
+
+* {skip_questionaire != true}-> questionaire
+->final
+==final
+Netreba zabúdať, že rozvoj kritického myslenia je celoživotný proces. Kritické myslenie využívame nie len v online prostredí ale aj pri hľadaní riešení a rozhodovaní v bežnom živote. :think_smile:
+>
+{
+  "type": "wait",
+  "duration": 3
+}
+<
+
+Ďakujem {name}. Ja sa s tebou nateraz lúčim. 
+Ak chceš pozri si prehľad tvojich dokumentov pre tému <b>{hypothesis}</b>. Pripadne pridaj ďalšie.
+
+* Ahoj!
+
+/* * {theme_name == 'climate'}->climate-end
+* {theme_name == 'general'}->general-end
+
+Keď si už získal tieto základné informácie, môžeš pokračovať pri hľadaní odpovedí pri ďalších témach.
+
+==climate-end
+* Ďakujem, nechcem pokračovať {redirect = 'myslim'}-> just-end //(Odchod – napríklad stránka myslim.eu),
+* Chcem samostatne riešiť inú tému {redirect = 'index'}-> just-end //(Stránka s témami),
+* Chcem ešte raz prejsť týmto celým kurzom {redirect = 'join'}-> just-end //(Úvodná stránka),
+* Chcem riešiť iné tvrdenie k téme Klimatické zmeny -> climate
+-> END
+==general-end
+* Ďakujem, nechcem pokračovať {redirect = 'myslim'}-> just-end //(Odchod – napríklad stránka myslim.eu),
+* Chcem samostatne riešiť inú tému {redirect = 'index'}-> just-end //(Stránka s témami),
+* Chcem ešte raz prejsť týmto celým kurzom {redirect = 'join'}-> just-end //(Úvodná stránka),
+
+==just-end */
+
+Krásny deň! A snáď niekedy nabudúce :normal_smile:
+>
+{
+  "type": "wait",
+  "duration": 4
+}
+<
+-> END

@@ -1,0 +1,5 @@
+==general
+{name} poďme teda k úlohe, ktorú mám riešiť. Na nej si ukážeme aj princíp kritického myslenia. Dostali sme tému: <b>{hypothesis}</b>.
+
+* [Pokračovať]
+-> annotation-ext

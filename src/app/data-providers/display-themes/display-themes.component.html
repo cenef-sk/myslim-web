@@ -1,0 +1,22 @@
+<div *ngIf="themes" class="display-themes">
+  <table class="data-table">
+    <thead>
+      <th></th>
+      <th>Name</th>
+      <th>id</th>
+    </thead>
+    <tr *ngFor="let theme of themes; let i = index">
+      <td>
+        <input type="radio"  [value]="i"
+          [(ngModel)]="themeRadio" (change)="onItemChange(theme)"
+          /> {{i}}
+      </td>
+      <td>
+        {{theme.name}}
+      </td>
+      <td>
+        {{theme.id}}
+      </td>
+    </tr>
+  </table>
+</div>

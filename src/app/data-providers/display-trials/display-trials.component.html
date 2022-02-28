@@ -1,0 +1,145 @@
+<div *ngIf="!trials || !trials.length" class="display-trials">
+  <h2 class="trials-title">{{noTrialTitle}}</h2>
+</div>
+<div *ngIf="trials && trials.length" class="display-trials">
+
+  <h2 class="trials-title">{{title}}</h2>
+
+  <table mat-table [dataSource]="trials" class="mat-elevation-z8 table-trials">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Radio Column -->
+    <ng-container matColumnDef="radio">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element">
+        <input type="radio"  [value]="element.index"
+          [(ngModel)]="trialRadio" (change)="onItemChange(element)"
+          />
+      </td>
+    </ng-container>
+
+    <!-- Index Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> No.</th>
+      <td mat-cell *matCellDef="let element"> {{element.index}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+    </ng-container>
+
+    <!-- Topic Name Column -->
+    <ng-container matColumnDef="topicName">
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.theme' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.topic.name}} </td>
+    </ng-container>
+
+    <!-- Topic Template Column -->
+    <ng-container matColumnDef="topicTemplate">
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.template' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.topic.template}} </td>
+    </ng-container>
+
+    <!-- Code Column -->
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.code' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+    </ng-container>
+
+    <!-- Participants Column -->
+    <ng-container matColumnDef="participants">
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.participants' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+    </ng-container>
+
+    <!-- Language Column -->
+    <ng-container matColumnDef="language">
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.language' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{(element.topic && element.topic.language)?element.topic.language.toUpperCase():'SK'}} </td>
+    </ng-container>
+
+    <!-- Run Column -->
+    <ng-container matColumnDef="run">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element" style="text-align: right;">
+        <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        (click)="onItemChange(element)">
+          <mat-icon>play_arrow</mat-icon>
+          {{'data.trials.run' | translate}}
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Statistics Column -->
+    <ng-container matColumnDef="results">
+      <th mat-header-cell *matHeaderCellDef>{{'data.trials.statistics' | translate}}</th>
+      <td mat-cell *matCellDef="let element" style="text-align: right;">
+        <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        (click)="onShowStats(element)">
+          <mat-icon>bar_chart</mat-icon>
+          výsledky
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- PublicTrial Column -->
+    <ng-container matColumnDef="publicTrial">
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.type' | translate}} </th>
+      <td mat-cell *matCellDef="let element" style="text-align: center;">
+        <mat-icon *ngIf="!element.publicTrial">visibility_off</mat-icon>
+        <mat-icon *ngIf="element.publicTrial">visibility</mat-icon>
+      </td>
+    </ng-container>
+
+    <!-- Share Column -->
+    <ng-container matColumnDef="share">
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.share' | translate}} </th>
+      <td mat-cell *matCellDef="let element" style="text-align: center;">
+
+        <div class="share">
+                <a class="click" (click)="share(element)">
+                  <mat-icon>facebook</mat-icon> <span>Share</span>
+                </a>
+            </div>
+        <!-- <button class="share" (click)="share()">
+        </button> -->
+      </td>
+    </ng-container>
+
+    <!-- Export Column -->
+    <ng-container matColumnDef="export">
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.export' | translate}} </th>
+      <td mat-cell *matCellDef="let element" style="text-align: right;">
+        <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        (click)="export(element)">
+          <mat-icon>file_download</mat-icon>Export
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Test Column -->
+    <ng-container matColumnDef="test">
+      <th mat-header-cell *matHeaderCellDef> Otestuj </th>
+      <td mat-cell *matCellDef="let element" style="text-align: center;">
+        <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        (click)="onTest(element)">
+          <mat-icon>quiz</mat-icon>
+          test
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>

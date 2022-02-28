@@ -1,0 +1,19 @@
+<div class="free-text-checkboxes">
+  <label *ngFor="let item of question.answers; let i = index">
+    <input
+      type="checkbox"
+      [(ngModel)]="input[i][0]"
+      [ngModelOptions]="{standalone: true}"/>
+      <span>{{item.answer}}</span>
+      <div *ngIf="input[i][0] && item.prompt == 'text'">
+        <input
+          type="text"
+          [(ngModel)]="input[i][1]"
+          placeholder="{{item.placeholder}}"
+        />
+      </div>
+  </label>
+</div>
+<div class="answer-buttons">
+  <button (click)="nextAction()">{{question.button}}</button>
+</div>

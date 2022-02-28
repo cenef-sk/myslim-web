@@ -1,0 +1,25 @@
+<div class="slider-cmp">
+  <div class="slider-result">
+    {{label}}
+  </div>
+  <div class="slider-wrap">
+    <mat-slider class="slider"
+    max="10"
+    min="0"
+    step="1"
+    [value]="input"
+    (input)="onInputChange($event)"
+    ></mat-slider>
+  </div>
+  <div class="slider-label">
+    <div class="slider-min">
+      {{'dialog.minScale' | translate}}
+    </div>
+    <div class="slider-max">
+      {{'dialog.maxScale' | translate}}
+    </div>
+  </div>
+  <div class="answer-button">
+    <button mat-raised-button (click)="nextAction()">{{question.button}}</button>
+  <div>
+</div>

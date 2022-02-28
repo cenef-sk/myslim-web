@@ -1,0 +1,254 @@
+.chat-content {
+  height: calc(100% - 128px);
+}
+
+@media screen and (max-width: 768px) {
+  .content-desktop {display: none;}
+  .content-mobile {display: block;}
+
+  .chat-content {
+    height: calc(100% - 28px);
+  }
+}
+.activities {
+   width: 270px;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 4px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.container {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  position: relative;
+  display: block;
+  height: 100%;
+  padding: 0px;
+
+}
+.chat-card {
+  position: relative;
+  display: block;
+  max-width: 500px;
+  /* margin-top: 50px; */
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  padding: 0px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.chat-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+
+  overflow-y: auto;
+  flex-flow: column nowrap;
+
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+.chat-content > :first-child {
+    margin-top: auto !important;
+    /* use !important to prevent breakage from child margin settings */
+}
+
+.chat-content > :last-child {
+    /* flex: 0 0 260px; */
+    /* bottom: 0px; */
+    /* margin-top: auto !important; */
+    /* use !important to prevent breakage from child margin settings */
+    /* position: sticky;
+    top: 0; */
+}
+
+.chat-title {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-actions {
+  height: 50px;
+  /* padding-bottom: 0px;
+  margin-bottom: -20px;
+  width: 100%;
+  text-align: center; */
+}
+
+
+.chat-actions-bottom {
+  padding-left: 16px;
+  padding-right: 16px;
+  /* margin-left: 0px;
+  margin-right: 0px; */
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.chat-prompt {
+  margin-bottom: 40px;
+}
+/* CHAT BUBBLES START */
+
+.example-header-image-me {
+  background-size: cover;
+  display: inline-block;
+  position: absolute;
+  top: 45px;
+  left: 10px;
+}
+
+.example-header-image-you {
+  background-size: cover;
+  display: inline-block;
+  position: absolute;
+  top: 45px;
+  right: 10px;
+}
+
+.message-right {
+  text-align: right;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 90%;
+  position: relative;
+}
+.message-left {
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 90%;
+  position: relative;
+}
+
+/* CSS talk bubble */
+.talk-bubble {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+	width: 65%;
+	height: auto;
+}
+
+.talk-bubble.me {
+  background-color: #FFEEDB;
+}
+.talk-bubble.you {
+  background-color: #ADA8B6;
+}
+.tri-right.me:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -20px;
+	right: auto;
+  top: 0px;
+	bottom: auto;
+	border: 22px solid;
+	border-color: #FFEEDB transparent transparent transparent;
+}
+
+.tri-right.you:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 0px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #ADA8B6 transparent transparent transparent;
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: 1em;
+	text-align: left;
+  line-height: 1.5em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  overflow: hidden;
+}
+/* CHAT BUBBLES END */
+
+.typing {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@charset "UTF-8";
+
+/**
+ * ==============================================
+ * Dot Flashing
+ * ==============================================
+ */
+.dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #6D6876;
+  color: #6D6876;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: .5s;
+}
+
+.dot-flashing::before, .dot-flashing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #6D6876;
+  color: #6D6876;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #6D6876;
+  color: #6D6876;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+  0% {
+    background-color: #6D6876;
+  }
+  50%,
+  100% {
+    background-color: #9D98A6;
+  }
+}

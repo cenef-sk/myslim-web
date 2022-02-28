@@ -1,0 +1,57 @@
+<div class="dialog3">
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Ktorý dokument je najdôležitejší?</span>
+    </div>
+    <input type="text" class="form-control" placeholder="očkovanie ..." aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Ktorý zdroj najdôveryhodnejší?</span>
+    </div>
+    <input type="text" class="form-control" placeholder="pubmed" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Očkovanie vnímam ako </span>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">negatávne 1</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">2</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">3</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">4</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">5 pozitívne</button>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Zmenil sa môj pohľad na očkovanie po tejto aktivite </span>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">nie 1</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">2</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">3</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">4</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">5 áno</button>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Čím by som argumentoval za očkovanie</span>
+    </div>
+    <textarea class="form-control" aria-label="With textarea"></textarea>
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Ktorá infomácia ma najviac ovplyvnila</span>
+    </div>
+    <textarea class="form-control" aria-label="With textarea"></textarea>
+  </div>
+
+  <div class="d2Buttons">
+    <button (click)="save()" type="button" class="btn btn-primary">Uložiť</button>
+    <button (click)="cancel()" type="button" class="btn btn-primary">Zrušiť</button>
+  </div>
+</div>

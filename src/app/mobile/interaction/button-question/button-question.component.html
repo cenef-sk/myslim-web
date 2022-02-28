@@ -1,0 +1,9 @@
+<div *ngIf="question  && showButtons" class="answer-area">
+  <button mat-raised-button
+    class="answer-area-button"
+    *ngFor="let item of question; index as i"
+    (click)="click(i)"
+    >
+     {{item}}
+  </button>
+</div>

@@ -1,0 +1,36 @@
+<!-- <div class="dialog3">
+  <img class="screenshot" src="./assets/statistics.png"/>
+  <div class="d2Buttons">
+    <button (click)="back()" type="button" class="btn btn-primary">Späť</button>
+  </div>
+</div> -->
+<div class="summary-description">
+  <h2>Statistiky tvojich zozbieranych clankov pre hypotezu: Nerecyklovane plasty negativne podporuju klimaticke zmeny</h2>
+  <div>
+    Pocas zberu dat si nasiel 3 clanky, kazdy z ineho zdroja. Vsetky sa k danej teme vyjadrovali pozitivne a suhlasili s predlozenou hypotezou, ze Nerecyklovane plasty negativne podporuju klimaticke zmeny.
+  </div>
+  <div>
+    Vidno, ze si sa s temou oboznamil, pre hlbsie pochopenie mozes pozriet aj ine zdroje: (Ministerstvo životného prostredia, ...)
+  </div>
+  <div>
+    Nasledujuce grafy zobrazuju zakladne statisticke informacie o tvojich najdenych clankoch.
+  </div>
+</div>
+
+<div class="dashboard">
+  <div class="chart">
+    <div class="title">Clanky podla zdroja</div>
+    <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"></canvas>
+  </div>
+  <div class="chart">
+    <div class="title">Nazor na hypotezu</div>
+    <canvas baseChart
+      [data]="doughnutChartData"
+      [labels]="doughnutChartLabels"
+      [chartType]="doughnutChartType">
+    </canvas>
+  </div>
+</div>

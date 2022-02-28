@@ -1,0 +1,14 @@
+<div class="expandable-checkboxes">
+  <label *ngFor="let item of question.answers; let i = index">
+    <input
+      type="checkbox"
+      [(ngModel)]="input[i]"
+      [ngModelOptions]="{standalone: true}"/>
+      <span>{{item.answer}}</span>
+      <div *ngIf="input[i]" [innerHTML]="item.recommendation"></div>
+
+  </label>
+</div>
+<div class="answer-buttons">
+    <button (click)="nextAction()">{{question.button}}</button>
+</div>

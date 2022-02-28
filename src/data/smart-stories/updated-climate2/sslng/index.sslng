@@ -1,0 +1,25 @@
+INCLUDE climate-subtheme.sslng
+INCLUDE general.sslng
+
+INCLUDE critical-thinking-intro.sslng
+INCLUDE document-annotation-ext.sslng
+INCLUDE document-annotation-simple.sslng
+INCLUDE conclusion.sslng
+INCLUDE questionaire.sslng
+/*
+input parameters
+name - of the person to chat with
+hypothesis - hypothesis that will be prooved
+skip_intro - configuration param
+min_doc_num - configuration param
+skip_questionaire - configuration param
+theme_name - configuration param [climate, general]
+
+probably we can stop if something missing to be sure
+
+*/
+
+{doc_num = 0}
+
+* {skip_intro==true}-> no-intro // jump to start in crititical-thinking-intro
+* {skip_intro!=true}-> crititcal-thinking-intro // jump to start in crititical-thinking-intro

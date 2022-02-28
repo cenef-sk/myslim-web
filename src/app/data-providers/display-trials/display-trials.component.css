@@ -1,0 +1,59 @@
+.display-trials {
+  display: block;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .display-trials {
+    padding: 0px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+  }
+
+}
+
+.table-trials {
+  width: 100%;
+  text-align: left;
+}
+
+.trials-title {
+  font-size: 20px;
+}
+
+.table-trials th {
+  text-align: center;
+}
+
+.table-trials td {
+  text-align: center;
+}
+
+.share {
+        background-color:#5D7DAE;
+        height:28px;
+        width: 80px;
+        position: relative;
+        top: -5px;
+        margin: 0px 10px;
+      }
+
+.share a.click {
+        font-size:12px;
+        font-weight:bold;
+        text-align:center;
+        color:#fff;
+        border:1px solid #FFF;
+        background-color:#5D7DAE;
+        padding: 5px 10px;
+        cursor: pointer;
+        text-decoration:none;
+        width:80px;
+        display:block;
+      }
+.share a.click span {
+  position: relative;
+  top: -6px;
+}

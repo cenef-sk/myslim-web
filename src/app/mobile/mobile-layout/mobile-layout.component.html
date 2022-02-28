@@ -1,0 +1,23 @@
+<div class="container">
+<mat-card class="chat-card">
+  <mat-toolbar  color="primary">
+    <mat-label>{{time}}</mat-label>
+    <span class="spacer"></span>
+    <mat-icon>wifi</mat-icon>
+    <mat-icon>signal_cellular_alt</mat-icon>
+    <mat-icon>battery_charging_full</mat-icon>
+  </mat-toolbar>
+  <div class="chat-content" #chatContainer>
+    <router-outlet></router-outlet>
+  </div>
+  <mat-toolbar class="chat-actions content-desktop">
+    <span class="spacer"></span>
+    <mat-icon>apps</mat-icon>
+    <span class="spacer"></span>
+    <mat-icon>crop_square</mat-icon>
+    <span class="spacer"></span>
+    <mat-icon>chevron_left</mat-icon>
+    <span class="spacer"></span>
+  </mat-toolbar>
+</mat-card>
+</div>

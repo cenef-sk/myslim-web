@@ -1,0 +1,140 @@
+<div *ngIf="!participants || !participants.length" class="display-participants">
+  <h2 class="participants-title">{{noParticipantTitle}}</h2>
+</div>
+<div *ngIf="participants && participants.length" class="display-participants">
+
+  <h2 class="participants-title">{{title}}</h2>
+
+  <table mat-table [dataSource]="participants" class="mat-elevation-z8 table-participants">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Radio Column -->
+    <ng-container matColumnDef="radio">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element">
+        <input type="radio"  [value]="element.index"
+          [(ngModel)]="participantRadio" (change)="onItemChange(element)"
+          />
+      </td>
+    </ng-container>
+
+    <!-- Index Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> No.</th>
+      <td mat-cell *matCellDef="let element"> {{element.index}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.guest && element.guest.name || ">Bez mena<"}} </td>
+    </ng-container>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+    </ng-container>
+
+    <!-- Topic Name Column -->
+    <ng-container matColumnDef="topicName">
+      <th mat-header-cell *matHeaderCellDef> Téma </th>
+      <td mat-cell *matCellDef="let element"> {{element.topic.name}} </td>
+    </ng-container>
+
+    <!-- Topic Template Column -->
+    <ng-container matColumnDef="topicTemplate">
+      <th mat-header-cell *matHeaderCellDef> Šablóna </th>
+      <td mat-cell *matCellDef="let element"> {{element.topic.template}} </td>
+    </ng-container>
+
+    <!-- Count Column -->
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef> Počet dokumenov </th>
+      <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+    </ng-container>
+
+    <!-- Duration Column -->
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef> Čas vypĺňania </th>
+      <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+    </ng-container>
+
+    <!-- questionaire Column -->
+    <ng-container matColumnDef="questionaire">
+      <th mat-header-cell *matHeaderCellDef> Vyplnený dotaznik </th>
+      <td mat-cell *matCellDef="let element"> {{element.data && element.data.questionaire && "Áno" || "Nie"}} </td>
+    </ng-container>
+
+    <!-- Language Column -->
+    <ng-container matColumnDef="language">
+      <th mat-header-cell *matHeaderCellDef> Jazyk </th>
+      <td mat-cell *matCellDef="let element"> SK </td>
+    </ng-container>
+
+    <!-- Run Column -->
+    <ng-container matColumnDef="run">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element" style="text-align: right;">
+        <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        (click)="onItemChange(element)">
+          <mat-icon>play_arrow</mat-icon>
+          spustiť
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Statistics Column -->
+    <ng-container matColumnDef="results">
+      <th mat-header-cell *matHeaderCellDef>Prehľad</th>
+      <td mat-cell *matCellDef="let element" style="text-align: right;">
+        <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        (click)="onShowStats(element)">
+          <mat-icon>bar_chart</mat-icon>
+          výsledky
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- PublicTrial Column -->
+    <ng-container matColumnDef="publicTrial">
+      <th mat-header-cell *matHeaderCellDef> Typ pracovnej skupiny </th>
+      <td mat-cell *matCellDef="let element" style="text-align: center;">
+        <mat-icon *ngIf="!element.publicTrial">visibility_off</mat-icon>
+        <mat-icon *ngIf="element.publicTrial">visibility</mat-icon>
+      </td>
+    </ng-container>
+
+    <!-- Share Column -->
+    <ng-container matColumnDef="share">
+      <th mat-header-cell *matHeaderCellDef> Zdieľaj na Facebooku </th>
+      <td mat-cell *matCellDef="let element" style="text-align: center;">
+
+        <div class="share">
+                <a class="click" (click)="share(element)">
+                  <mat-icon>facebook</mat-icon> <span>Share</span>
+                </a>
+            </div>
+        <!-- <button class="share" (click)="share()">
+        </button> -->
+      </td>
+    </ng-container>
+
+    <!-- Detail Column -->
+    <ng-container matColumnDef="detail">
+      <th mat-header-cell *matHeaderCellDef> Detail </th>
+      <td mat-cell *matCellDef="let element" style="text-align: center;">
+        <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+        (click)="onDetail(element)">
+          <mat-icon>search</mat-icon>
+          detail
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>

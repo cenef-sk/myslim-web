@@ -1,0 +1,271 @@
+//pred úvodným videom
+Hey {name},<>
+Before I introduce myself and we take off with our conversation, I want to show you my experience through a quick video :normal_smile:
+//vloženie videa
+
+//pred úvodným komiksom
+Hey {name},<>
+Before I introduce myself and we take off with our conversation, I want to show you my experience through a short comics. :normal_smile:
+//vloženie komiksu
+
+
+== no-intro // if no intro just character introduction
+Hey {name}! <> //{name} vytiahni meno <>spojenie do suvisleho bloku s dalsim paragrafom
+I am Thomas. I am glad we get to spend some time together.:normal_smile:
+-> theme
+
+== crititcal-thinking-intro //1 - 17 diagram
+//toto je komentar
+//TODO: toto sa zobrazi pri kompilacii ako TODO list
+
+Hello {name}, <> //{name} vytiahni meno <>spojenie do suvisleho bloku s dalsim paragrafom
+I am Thomas. Since the last experience I managed to research and learn a bit about critical thinking. :normal_smile:
+Do you know what I found out?
+They say that critical thinking is considered one of the key competencies for 21st century. Do you also wanna know about Critical Thinking?
+* [Yes, I want to] Yes -> otazka5
+* [No, thank you] No
+
+Don’t you want to think it through?
+Maybe you already have some knowledge of critical thinking, but try to consider it.:think_smile:
+Despite your knowledge, it wouldn’t hurt to go over it again together.
+Do you want to learn more about critical thinking?
+* [Yes, I want to] Yes -> otazka5
+* [No, thank you] No
+
+I didn’t expect this.
+It’s fascinating, that critical thinking doesn’t pick your curiosity.  I think the Russian grown talkative potato with IQ of 168 named Igor could spark some interest.
+* [Well ok, I will try the critical thinking] I will try critical thinking -> otazka5
+* [I like it and it could be true] It could be true
+
+You can’t survive in this world without critical thinking I will show you a couple of tricks relates to critical thinking and media literacy. :normal_smile:
+* [Next]
+-> otazka5
+
+== otazka5
+{name}, I’ve heard some statements about critical thinking. I also heard not all of them are true.
+Which of these statements do you think is true? :think_smile:
+>
+{
+  "type": "radio",
+  "variable": "km_definition",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Critical thinking means to critically refute someone else’s statement.",
+      "response": "Refute someone else’s statement.",
+      "value": "1"
+    },
+    {
+      "answer": "Critical thinking is the effort towards understanding whichever information in the widest context possible.",
+      "response": "Effort to understand information.",
+      "value": "2"
+    },
+    {
+      "answer": "Critical thinking is psychological view of a person.",
+      "response": "Psychological view of a person.",
+      "value": "4"
+    }
+  ],
+  "button": "Next"
+}
+<
+{intro.km_definition = km_definition}
+// 1, 2, 4 bit operation // km & 2
+* {km_definition == '2'}->otazka7
+:think_smile: I am  not sure. Wait, I will show you what they write about critical thinking.
+* [Next]
+-> otazka7
+
+== otazka7
+I read this about critical thinking :normal_smile:
+Critical thinking is the ability to look at information from multiple angles.
+Assess whether the information is true or whether someone is trying to manipulate us.
+We can judge text, sound, video or an image by critical thinking.
+* [Next]
+Apparently it's not an ability we can learn in one night :laugh_smile:
+The basis of critical thinking is thinking about the information and data received.
+We should always ask ourselves questions and take into account several perspectives. It is important to try to reduce prejudice against others.
+Is it comprehensible?  :laugh_smile:
+* [Next]
+Look at the picture I’ve found.
+
+climate/media-detail1.jpg #img
+
+>
+{
+  "type": "wait",
+  "duration": 3
+}
+<
+
+What emotions does this picture evoke in you?
+>
+{
+  "type": "radio",
+  "variable": "question_emotions",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Surprise",
+      "response": "Surprise",
+      "value": "1"
+    },
+    {
+      "answer": "Anger",
+      "response": "Anger",
+      "value": "2"
+    },
+    {
+      "answer": "Fear",
+      "response": "Fear",
+      "value": "4"
+    },
+    {
+      "answer": "Disappointment",
+      "response": "Disappointment",
+      "value": "8"
+    },
+    {
+      "answer": "Joy",
+      "response": "Joy",
+      "value": "16"
+    }
+  ],
+  "button": "Next"
+}
+<
+{intro.question_emotions = question_emotions}
+And now look at this image.
+
+climate/media-detail2.jpg #img
+
+>
+{
+  "type": "wait",
+  "duration": 3
+}
+<
+* [Next]
+
+And here goes the last one!
+
+climate/media-detail3.jpg #img
+
+* [Next]
+
+Is it clear?
+I realized that reality can be totally different from what someone mediates and gets to us. :sad_smile:
+
+* [Next]
+
+I heard a few statements. Some should be true, some should not.
+What do you think of them? Indicate which of the statements you think is true. :think_smile:
+>
+{
+  "type": "explained-check",
+  "variable": "km-what",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Information is only the beginning of the process of critical thinking, not its result.",
+      "correct": true,
+      "explanation": "Explanation: The information that comes to us may not always be true and complete. It is the reception of information that should start the process of thinking and evaluating the information."
+    },
+    {
+      "answer": "Effective critical thinking requires only good observational skills.",
+      "correct": false,
+      "explanation": "Explanation: In addition to observational ability, it requires many other properties and approaches, such as analytical and logical thinking, information retrieval, correct questioning, and so on."
+    },
+    {
+      "answer": "Critical thinking is not a solution, it is the way we look for a solution.",
+      "correct": true,
+      "explanation": "Explanation: Critical thinking involves a whole set of approaches and procedures to find a solution. Critical thinking is not just the final solution."
+    },
+    {
+      "answer": "Whoever wants to think critically must use the Internet.",
+      "correct": false,
+      "explanation": "Explanation: The Internet can help to obtain information when searching for answers, this is not a necessary condition. Even in the past, people thought critically and did not use computers."
+    }
+  ],
+  "explanation": "I have learned that there are initiatives and groups of people who follow sites and portals and, based on the posts and information that are published there, create a list of sites that are more likely to contain misleading information. One of such lists can also be found on the website: www.konspiratori.sk",
+  "button_validate": "Continue",
+  "button": "We can continue"
+}
+<
+{intro.km-what = km-what}
+//(po stlačení sa farebne označujú odpovede zelené správne zaškrtnuté a červené  nesprávne). Pod otázkami sa zobrazí vysvetlenie.
+//po zobrazení správnych odpovedí
+
+We can move on It is said that it is appropriate to obtain information and data from various sources. :normal_smile:
+From what sources / media do you most often obtain information?
+>
+{
+  "type": "free-text-check",
+  "variable": "used_sources",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Online news servers",
+      "prompt": "text",
+      "placeholder": "Please give an example"
+    },
+    {
+      "answer": "Radio",
+      "prompt": "text",
+      "placeholder": "Please give an example"
+    },
+    {
+      "answer": "Print - newspapers / magazines",
+      "prompt": "text",
+      "placeholder": "Please give an example"
+    },
+    {
+      "answer": "Television",
+      "prompt": "text",
+      "placeholder": "Please give an example"
+    },
+    {
+      "answer": "Podcasts",
+      "prompt": "text",
+      "placeholder": "Please give an example"
+    },
+    {
+      "answer": "Scientific publications"
+    },
+    {
+      "answer": "Social networks",
+      "prompt": "text",
+      "placeholder": "Please give an example"
+    },
+    {
+      "answer": "Friends"
+    },
+    {
+      "answer": "Family"
+    },
+    {
+      "answer": "Other",
+      "prompt": "text",
+      "placeholder": "Please give an example"
+    }
+  ],
+  "button": "Next"
+}
+<
+{intro.used_sources = used_sources}
+
+* {used_sources[0][0] == false}-> otazka17 //(Ak zaklikol aj „Online spravodajské servery“, tak na otázku 16 inak otázka 17)
+
+I see that you also monitor information in the online environment. I was notified that some pages may be delusional or misleading.
+* [Next]
+
+-> theme
+
+==otazka17
+I noticed that you are not looking for information on online portals. The Internet can also be a source of interesting information. It's important to know which sources are credible and which sites are more likely to spread misleading information and untrustworthy content.
+* [Next]
+
+-> theme
+==theme
+* {theme_name == 'climate'}->climate
+* {theme_name == 'general'}->general

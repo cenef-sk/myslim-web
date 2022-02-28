@@ -1,0 +1,72 @@
+== conclusion // 45 - 51 diagram
+
+We are nearing the end of our meeting. I am glad that we were able to spend time together and enrich each other. :normal_smile:
+It is necessary to realize that the development of critical thinking requires a lot of time and effort. It's not an ability we can learn over night.:think_smile:
+* [Next]
+
+The basis of the critical thinking process is active thinking about the received information and data, their active assessment, asking questions, taking into account several possible perspectives, possible influence of own stereotypes, learned assumptions or prejudices, but also possible interests of those who convey information to us.
+>
+{
+  "type": "wait",
+  "duration": 6
+}
+<
+* [Next]
+//Poďme si ešte zhrnúť, s čím sme pri hľadaní odpovedí k téme {hypothesis} pracovali :think_smile:
+//* [Ďalej]
+
+//Štatistika #statistics//(počet zdrojov, info o autoroch, správne odpovede, porovnanie s ostatnými v triede...)
+// #statistics img to click
+//* [Ďalej]
+When working with articles and following discussions, we may come across differences of opinion, other attitudes and views on the topic.
+Differences of opinion can lead to the spread of hate speech and anger. : sad_smile: It is therefore important to realize your role in the online environment as a responsible "digital citizen".
+
+* [Next]
+//Hodnotenie <>
+// mozno tu pojde #questionaire
+// TODO podmienka
+{hack = 0} // this is used to separate two branches
+//{name} som rád, že sme spolu mohli tráviť čas pri vzdelávaní sa o kritickom myslení, mediálnej gramotnosti a ďalších témach týkajúcich sa online prostredia. :normal_smile:
+
+* {skip_questionaire != true}-> questionaire
+->final
+==final
+It must not be forgotten that the development of critical thinking is a lifelong process. We use critical thinking not only in the online environment but also in finding solutions and decisions in everyday life. :normal_smile:
+>
+{
+  "type": "wait",
+  "duration": 3
+}
+<
+
+Thank you {name}. I'm saying goodbye to you for now.
+If you want, see an overview of your documents on <b>{hypothesis}</b>. Add more if necessary.
+
+* Bye!
+
+/* * {theme_name == 'climate'}->climate-end
+* {theme_name == 'general'}->general-end
+
+Keď si už získal tieto základné informácie, môžeš pokračovať pri hľadaní odpovedí pri ďalších témach.
+
+==climate-end
+* Ďakujem, nechcem pokračovať {redirect = 'myslim'}-> just-end //(Odchod – napríklad stránka myslim.eu),
+* Chcem samostatne riešiť inú tému {redirect = 'index'}-> just-end //(Stránka s témami),
+* Chcem ešte raz prejsť týmto celým kurzom {redirect = 'join'}-> just-end //(Úvodná stránka),
+* Chcem riešiť iné tvrdenie k téme Klimatické zmeny -> climate
+-> END
+==general-end
+* Ďakujem, nechcem pokračovať {redirect = 'myslim'}-> just-end //(Odchod – napríklad stránka myslim.eu),
+* Chcem samostatne riešiť inú tému {redirect = 'index'}-> just-end //(Stránka s témami),
+* Chcem ešte raz prejsť týmto celým kurzom {redirect = 'join'}-> just-end //(Úvodná stránka),
+
+==just-end */
+
+Beautiful day! And maybe next time :normal_smile:
+>
+{
+  "type": "wait",
+  "duration": 4
+}
+<
+-> END

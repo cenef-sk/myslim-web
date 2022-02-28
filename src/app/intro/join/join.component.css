@@ -1,0 +1,71 @@
+.bg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  z-index: -10;
+  height: 100%;
+  background-color: #bab1ca;
+}
+
+.bg img {
+  width: 100%;
+  /* opacity: 0.5; */
+}
+
+.join-title {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  max-width: 700px;
+}
+
+.example-card {
+  position: relative;
+
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .join-title {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width:  100%;
+    max-width: 700px;
+  }
+
+  .example-card {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
+}
+
+
+.example-card .action {
+  text-align: center;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

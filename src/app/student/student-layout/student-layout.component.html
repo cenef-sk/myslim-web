@@ -1,0 +1,43 @@
+<mat-toolbar color="primary"  class="header">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+  (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{ 'CriticalThinking' | translate }}</span>
+  <span class="spacer"></span>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list role="list" class="side-menu">
+      <a mat-list-item [routerLink]="['/student']">
+    		<span matLine>Home</span>
+        <mat-icon>home</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/student/profile']">
+    		<span matLine>Profile</span>
+        <mat-icon>person</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/student/trials']">
+        <span matLine>Trials</span>
+        <mat-icon>science</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/teacher']">
+    		<span matLine>Teacher Mode</span>
+        <mat-icon>menu_book</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/admin']">
+    		<span matLine>Admin Mode</span>
+        <mat-icon>admin_panel_settings</mat-icon>
+      </a>
+      <a mat-list-item [routerLink]="['/logout']">
+    		<span matLine>Logout</span>
+        <mat-icon>directions_run</mat-icon>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,276 @@
+== annotation-simple // 52 - 66 diagram
+Pošli mi, prosím, odkaz (link) na ďalší vybraný príspevok súvisiaci s témou, s ktorým budeme pracovať :normal_smile:
+//text, (nesmie byť prázdné, začina na www alebo http  a končí .text)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.url = answer}
+Výborne,  {name} :normal_smile:
+Aký postoj k tvrdeniu {hypothesis} v tomto príspevku zaujal autor?
+
+* Autor úplne súhlasí s tvrdením[] {hypothesis}{document.author_opinion = 5}
+* Autor skôr súhlasí s tvrdením[] {hypothesis}{document.author_opinion = 4}
+* Autor zaujal neutrálny postoj k téme[] {hypothesis}{document.author_opinion = 3}
+* Autor skôr nesúhlasí s tvrdením[] {hypothesis}{document.author_opinion = 2}
+* Autor úplne nesúhlasí s tvrdením[] {hypothesis}{document.author_opinion = 1}
+
+A čo si o tom myslíš ty? :think_smile:
+* Úplne súhlasím s autorom[]{document.agree_with_author = 5} // TODO check is multi _ problem?
+* Skôr súhlasím s autorom[]{document.agree_with_author = 4}
+* Skôr nesúhlasím s autorom[]{document.agree_with_author = 2}
+* Úplne nesúhlasím s autorom[]{document.agree_with_author = 1}
+
+
+KTO je autor?
+
+//Text (nie prázdna hodnota) (uveď „neviem“ v prípade, že sa ti meno autora nepodarilo zistiť)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.author = answer}
+Nájdi profil autora a jeho ďalšiu prácu. Vieš o jeho práci zistiť viac?
+* Našiel som jeho ďalšiu tvorbu, ale autor sa tejto téme bežne nevenuje[]{document.author_additional = 1}
+* Autor sa rovnakej téme venuje dlhšiu dobu[]{document.author_additional = 2}
+* Autora neviem vypátrať[]{document.author_additional = 3}
+* Autor je dohľadateľný, ale o jeho činnosti nie je dostatok informácií[]{document.author_additional = 4}
+
+Uveď, prosím, aj zdroj príspevku (stránku, kde je príspevok zverejnený).
+
+//Text (nie prázdna hodnota alebo http... www.text.text)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.source = answer}
+
+
+Kto stojí za webovou stránkou, na ktorej je príspevok zverejnený? (Uveď meno alebo názov napr. osoby, politickej strany, firmy, média, skupiny odborníkov na danú tému, nie je to uvedené, a pod.)
+
+//Text (nie prázdna hodnota)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.source_owner = answer}
+
+Na aký účel stránka aktuálne slúži? :think_smile:
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Odborné informácie"
+    },
+    {
+      "answer": "Zábava"
+    },
+    {
+      "answer": "Blog"
+    },
+    {
+      "answer": "Osobné prezentovanie"
+    },
+    {
+      "answer": "Spravodajstvo"
+    },
+    {
+      "answer": "Propagácia (reklama)"
+    },
+    {
+      "answer": "Diskusné fórum"
+    },
+    {
+      "answer": "Sociálna sieť"
+    },
+    {
+      "answer": "Vyvolanie paniky"
+    },
+    {
+      "answer": "Iné",
+      "prompt": "text"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{document.main_aim = answer}
+
+Je podľa teba tento zdroj informácií dôveryhodný? Zverejňujú sa na ňom pravdivé a neskreslené príspevky?
+
+// (Posuvník na určovanie škály, alebo škálovacie hodnoty 1 -10)  Dôveryhodný, nedôveryhodný
+>
+{
+  "type": "scale",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.credibility = answer}
+ČO je cieľom daného príspevku?
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Informovať"
+    },
+    {
+      "answer": "Pobaviť"
+    },
+    {
+      "answer": "Vyjadriť názor"
+    },
+    {
+      "answer": "Zastrašiť"
+    },
+    {
+      "answer": "Vyvolať rozruch"
+    },
+    {
+      "answer": "Propagovať (výrobok, službu, osobnosť, politickú stranu)"
+    },
+    {
+      "answer": "Diskutovať"
+    },
+    {
+      "answer": "Osveta"
+    },
+    {
+      "answer": "Iné",
+      "prompt": "text"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{document.content_aim = answer}
+S akými zdrojmi a materiálmi autor pracoval? Odkiaľ čerpal informácie?
+//“Text” (keď klikne na +, pridá sa ďalšie textové pole)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "recommendation": "Poznámka: zamyslieť sa nad zdrojmi… Snaží sa autor ukázať celú problematiku alebo propaguje len svoj postoj, prípadne vytiahol niektoré informácie z kontextu? Je potrebné si opäť overiť zdroj, autora….",
+  "button": "Ďalej"
+}
+<
+{document.references = answer}
+
+AKO autor informáciu podáva? :think_smile: <>
+Akými prostriedkami sa autor snaží zaujať?
+
+>
+{
+  "type": "expand-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Obrázky",
+      "recommendation": "Nad čím sa zamyslieť: aktuálne, neaktuálne, fotografia, ilustrácia, infografika, súvisiace s témou, nesúvisiace s témou."
+    },
+    {
+      "answer": "Videá",
+      "recommendation": "Nad čím sa zamyslieť: aktuálne, neaktuálne, animácia, realita, súvisiace s témou, nesúvisiace s témou, reč tela."
+    },
+    {
+      "answer": "Štatistiky",
+      "recommendation": "Často sa nesprávne prezentujú dáta a štatistické výskumy. Bývajú najčastejším zdrojom chýb s veľkým vplyvom na laickú ale i na odbornú verejnosť."
+    },
+    {
+      "answer": "Clickbaity",
+      "recommendation": "Clickbait je druh textu, ktorý má v prvom rade za cieľ nalákať užívateľa na kliknutie na určitý odkaz, titulok článku či k prehraniu videa."
+    },
+    {
+      "answer": "Text a hovorené slovo",
+      "recommendation": "Nad čím sa zamyslieť: citovo zafarbený jazyk, vulgárny jazyk, neodbornosť, hranie na emócie, clickbaity, argumentačné fauly."
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{document.tools = answer}
+
+KOMU je príspevok určený?
+//Text (nie prázdna hodnota)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "recommendation": "Odporúčanie: pri odpovediach na túto otázku ti možno pomôžu komentáre a reakcie pod príspevkom. Všimneš si, kto na tento príspevok reagoval a čo ho zaujalo.",
+  "button": "Ďalej"
+}
+<
+{document.to_who = answer}
+
+Je článok cielený aj na teba?
+* Áno[]{document.me = 1}
+* Nie[]{document.me = 2}
+* Neviem[]{document.me = 3}
+
+PREČO bol tento príspevok vytvorený?
+Zamysli sa nad tým, s čím daný článok súvisí a aký je kontext.
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Legislatíva (napr. plánujú sa zmeny v zákonoch)"
+    },
+    {
+      "answer": "Informovanie (napr. uviesť čitateľa do problematiky)"
+    },
+    {
+      "answer": "Propagácia (napr. uvádza sa nový produkt na trh)"
+    },
+    {
+      "answer": "Zvýšenie návštevnosti stránky (napr. clickbaity)"
+    },
+    {
+      "answer": "Iné (uveď)",
+      "prompt": "text"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{document.why = answer}
+
+{documents[doc_num] = document}
+//TODO {document = 0}
+{doc_num = doc_num + 1}
+
+* {min_doc_num > doc_num}-> annotation-simple
+
+A opäť chcem vyzdvihnúť, že čím viac dôveryhodných informácií máme, tým lepšie vieme zaujať postoj :normal_smile:
+Chceš pridať ďalší príspevok k tvrdeniu, ktoré riešime <b>{hypothesis}</b>?
+* [Áno, chcem pridať ďalší príspevok] Áno -> annotation-simple
+* [Nie, mám už dostatok informácií k téme] Nie -> opinion-check
+
+/*
+Zaujímavé linky (do odporúčaní):
+
+https://infosecurity.sk/category/dezinfo/
+https://blbec.online/
+https://www.konspiratori.sk/
+*/

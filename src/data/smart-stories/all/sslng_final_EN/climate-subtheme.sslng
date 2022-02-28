@@ -1,0 +1,19 @@
+==climate
+{name}, I'll show you the task I have to solve from which I am supposed to get a better understanding of the principle of critical thinking. :normal_smile:
+We have to deal with the topic of Climate Change on Earth. In recent years, it has resonated quite a bit among the population. Let's take a closer look at it. :normal_smile:
+
+
+* [Continue]
+
+However, the topic of Climate Change is too general. :sad_smile: For similar general topics, it is useful to look at the problem from several angles and turn it into small digestible topics.
+
+Here are some statements related to this topic. Try to choose one that we will focus on. :normal_smile:
+* Waste sorting is important.[]{hypothesis = 'Waste sorting is important'}
+* The country in which you live performs very well in recycling compared to other countries.[] {hypothesis = 'The country in which you live performs very well in recycling compared to other countries'}
+* Air transport is ecological.[] {hypothesis = 'Air transport is ecological'}
+* There are no illegal dumps in the country you live in.[] {hypothesis = 'There are no illegal dumps in the country you live in'}
+* CO2 emissions in the country you live meet the prescribed standards.[] {hypothesis = 'CO2 emissions in the country you live meet the prescribed standards'}
+* The textile industry has little influence on climate change.[] {hypothesis = 'The textile industry has little influence on climate change'}
+{intro.hypothesis = hypothesis}
+
+-> annotation-ext

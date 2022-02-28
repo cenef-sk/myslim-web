@@ -1,0 +1,163 @@
+<div class="container">
+<mat-card class="chat-card">
+  <mat-toolbar  color="primary">
+    <button mat-button  matSuffix mat-icon-button aria-label="Clear"
+    title="Ukončiť chat" (click)="exit()">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    <span class="chat-title">Tomáš - {{globals.user.name}}</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu3" matSuffix mat-icon-button aria-label="Clear"
+    title="Moje dokumenty">
+      <mat-icon matBadge="{{documents.length}}" matBadgeColor="primary">article</mat-icon>
+    </button>
+    <mat-menu #menu3="matMenu" xPosition="before" class="chat-activities">
+      <mat-action-list class="activities">
+        <div mat-subheader>Tvoje dokumenty</div>
+        <mat-list-item *ngFor="let document of documents">
+          <mat-icon mat-list-icon>receipt</mat-icon>
+          <!-- <mat-icon mat-list-icon>picture_as_pdf</mat-icon> -->
+          <div mat-line><a [href]="(document)?document.url:''" target="_blank" >{{(document)?document.url:""}}</a></div>
+          <!-- <div mat-line>Velmi kratky popis</div> -->
+        </mat-list-item>
+        <!-- <mat-list-item>
+          <mat-icon mat-list-icon style="color: red;">picture_as_pdf</mat-icon>
+          <mat-icon mat-list-icon>picture_as_pdf</mat-icon>
+          <mat-icon mat-list-icon>picture_as_pdf</mat-icon>
+          <mat-icon mat-list-icon>picture_as_pdf</mat-icon>
+          <div mat-line>Velmi kratky popis</div>
+        </mat-list-item> -->
+      </mat-action-list>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu2" matSuffix mat-icon-button aria-label="Clear"
+    title="Záchytné body">
+      <mat-icon matBadge="{{globals.world.anchors.length}}" matBadgeColor="{{(globals.world.anchors.length)?'warn':'primary'}}">anchor</mat-icon>
+    </button>
+    <mat-menu #menu2="matMenu" xPosition="before" class="chat-activities">
+      <mat-action-list class="activities">
+        <div mat-subheader *ngIf="!globals.world.anchors.length">Zatiaľ nemáte žiadne ďalšie záchytné body</div>
+        <div mat-subheader *ngIf="globals.world.anchors.length">Záchytné body</div>
+        <mat-list-item *ngFor="let anchor of globals.world.anchors">
+          <mat-icon mat-list-icon style="color: green;">thumb_up</mat-icon>
+          <div mat-line>{{anchor.name}}</div>
+          <div mat-line>{{anchor.text}}</div>
+        </mat-list-item>
+      </mat-action-list>
+    </mat-menu>
+    <button *ngIf="testEnvironment" mat-icon-button [matMenuTriggerFor]="menu"  matSuffix mat-icon-button aria-label="Clear"
+    title="Doporučené aktivity">
+      <mat-icon matBadge="{{globals.world.activities.length}}" matBadgeColor="{{(globals.world.activities.length)?'warn':'primary'}}">emoji_objects</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before" class="chat-activities">
+      <mat-action-list class="activities">
+        <div mat-subheader *ngIf="!globals.world.activities.length">Zatiaľ nemáte žiadne ďalšie doporučené aktivity</div>
+        <div mat-subheader *ngIf="globals.world.activities.length">Ďalšie doporučené aktivity</div>
+        <mat-list-item *ngFor="let activity of globals.world.activities"
+        (click)="show(activity.fileName, activity.path)" >
+          <mat-icon mat-list-icon>picture_as_pdf</mat-icon>
+          <div mat-line>{{activity.name}}</div>
+          <div mat-line>{{activity.text}}</div>
+        </mat-list-item>
+        <!-- <mat-divider></mat-divider> -->
+      </mat-action-list>
+    </mat-menu>
+
+    <button mat-icon-button  [matMenuTriggerFor]="menu4" matSuffix mat-icon-button aria-label="Clear"
+    title="Ostatné akcie">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu4="matMenu" xPosition="before" class="chat-activities">
+      <mat-action-list class="activities">
+        <mat-list-item (click)="exit()" >
+          <mat-icon mat-list-icon>directions_walk</mat-icon>
+          <div mat-line>Ukončiť</div>
+        </mat-list-item>
+      </mat-action-list>
+    </mat-menu>
+
+  </mat-toolbar>
+  <div class="chat-content" #chatContainer>
+
+    <div *ngFor="let message of chatHistory; let i = index" [ngClass]="(message.sender == ME)?'message-left':'message-right'">
+      <div mat-card-avatar [ngClass]="(message.sender == ME)?'example-header-image-you':'example-header-image-me'"
+      [ngStyle]="{'background-image': 'url(' + photo(message.sender == ME) + ')'}"
+      ></div>
+      <div [ngClass]="(message.sender == ME)?'talk-bubble tri-right you':'talk-bubble tri-right me'">
+        <div class="talktext">
+          <p [innerHTML]="message.message"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <app-multi-button-question *ngIf="question"
+    (onAnswer)="onAnswer($event)"
+    ></app-multi-button-question> -->
+    <div *ngIf="!hidePrompt" class="chat-prompt">
+      <app-button-question
+        *ngIf = "isOptions()"
+        [question] = "question"
+        (answer) = "onAnswer($event)"
+      ></app-button-question>
+      <app-free-text-question
+        *ngIf = "isFreeTextQuestion()"
+        [question] = "question"
+        (answer) = "onAnswer($event)"
+      ></app-free-text-question>
+      <app-radio-question
+        *ngIf = "isRadioQuestion()"
+        [question] = "question"
+        (answer) = "onAnswer($event)"
+      ></app-radio-question>
+      <app-explained-checkboxes-question
+        *ngIf = "isExplainedCheckboxesQuestion()"
+        [question] = "question"
+        (answer) = "onAnswer($event)"
+      ></app-explained-checkboxes-question>
+      <app-expandable-checkboxes-question
+        *ngIf = "isExpandableCheckboxesQuestion()"
+        [question] = "question"
+        (answer) = "onAnswer($event)"
+      ></app-expandable-checkboxes-question>
+      <app-free-text-checkboxes-question
+        *ngIf = "isFreeTextCheckboxesQuestion()"
+        [question] = "question"
+        (answer) = "onAnswer($event)"
+      ></app-free-text-checkboxes-question>
+      <app-scale-question
+        *ngIf = "isScaleQuestion()"
+        [question] = "question"
+        (answer) = "onAnswer($event)"
+      ></app-scale-question>
+    </div>
+    <div *ngIf="typing">
+      <div class="message-right">
+        <div mat-card-avatar class="example-header-image-me"
+        [ngStyle]="{'background-image': 'url(' + photo(false) + ')'}"
+        ></div>
+        <div class="talk-bubble tri-right me">
+          <div class="talktext">
+              <div class="typing dot-flashing"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <mat-card-actions class="chat-actions"> -->
+        <!-- <mat-form-field class="example-full-width" autofilled="false" appearance="outline">
+          <input matInput placeholder="Your Message" autocomplete="off" disabled>
+          <button mat-button  matSuffix mat-icon-button aria-label="Send">
+            <mat-icon>send</mat-icon>
+          </button>
+        </mat-form-field> -->
+      <!-- </mat-card-actions> -->
+    </div>
+  </div>
+  <mat-toolbar class="chat-actions-bottom content-desktop">
+    <span class="spacer"></span>
+    <mat-icon>apps</mat-icon>
+    <span class="spacer"></span>
+    <mat-icon>crop_square</mat-icon>
+    <span class="spacer"></span>
+    <mat-icon>chevron_left</mat-icon>
+    <span class="spacer"></span>
+  </mat-toolbar>
+</mat-card>
+</div>

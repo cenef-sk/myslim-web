@@ -1,0 +1,22 @@
+<div *ngIf="users" class="display-users">
+  <table class="data-table">
+    <thead>
+      <th></th>
+      <th>Name</th>
+      <th>Roles</th>
+    </thead>
+    <tr *ngFor="let user of users; let i = index">
+      <td>
+        <input type="radio"  [value]="i"
+          [(ngModel)]="userRadio" (change)="onItemChange(user)"
+          /> {{i}}
+      </td>
+      <td>
+        {{user.name}}
+      </td>
+      <td>
+        {{user.roles}}
+      </td>
+    </tr>
+  </table>
+</div>

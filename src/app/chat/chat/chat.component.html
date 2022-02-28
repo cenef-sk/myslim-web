@@ -1,0 +1,100 @@
+<div class="chat is-visible">
+  <div class="chat_header">
+    <div class="chat_option">
+    <div class="header_img">
+      <img src="http://res.cloudinary.com/dqvwa7vpe/image/upload/v1496415051/avatar_ma6vug.jpg"/>
+    </div>
+    <span id="chat_head">Jane Doe</span> <br> <span class="agent">Agent</span> <span class="online">(Online)</span>
+    <span id="chat_fullscreen_loader" class="chat_fullscreen_loader"><i class="fullscreen zmdi zmdi-lamp"></i></span>
+
+    </div>
+
+  </div>
+
+  <!-- <div class="chat_body chat_login">
+      <a id="chat_first_screen" class="fab"><i class="zmdi zmdi-arrow-right"></i></a>
+      <p>We make it simple and seamless for businesses and people to talk to each other. Ask us anything</p>
+  </div> -->
+<!--
+  <div id="chat_converse" class="chat_conversion chat_converse">
+          <a id="chat_second_screen" class="fab"><i class="zmdi zmdi-arrow-right"></i></a>
+    <span class="chat_msg_item chat_msg_item_admin">
+          <div class="chat_avatar">
+             <img src="http://res.cloudinary.com/dqvwa7vpe/image/upload/v1496415051/avatar_ma6vug.jpg"/>
+          </div>Hey there! Any question?</span>
+    <span class="chat_msg_item chat_msg_item_user">
+          Hello!</span>
+          <span class="status">20m ago</span>
+    <span class="chat_msg_item chat_msg_item_admin">
+          <div class="chat_avatar">
+             <img src="http://res.cloudinary.com/dqvwa7vpe/image/upload/v1496415051/avatar_ma6vug.jpg"/>
+          </div>Hey! Would you like to talk sales, support, or anyone?</span>
+    <span class="chat_msg_item chat_msg_item_user">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+           <span class="status2">Just now. Not seen yet</span>
+  </div> -->
+
+  <div id="chat_form" class="chat_converse chat_form">
+  <a id="chat_fourth_screen" class="fab"><i class="zmdi zmdi-arrow-right"></i></a>
+    <span class="chat_msg_item chat_msg_item_admin">
+          <div class="chat_avatar">
+             <img src="http://res.cloudinary.com/dqvwa7vpe/image/upload/v1496415051/avatar_ma6vug.jpg"/>
+          </div>Hey there! Any question?</span>
+    <span *ngFor="let message of chatHistory" class="chat_msg_item chat_msg_item_admin">
+          <div class="chat_avatar">
+             <img src="http://res.cloudinary.com/dqvwa7vpe/image/upload/v1496415051/avatar_ma6vug.jpg"/>
+          </div>{{message.text}}</span>
+
+    <span class="chat_msg_item chat_msg_item_user">
+          Hello!</span>
+          <span class="status">20m ago</span>
+    <span class="chat_msg_item chat_msg_item_admin">
+          <div class="chat_avatar">
+             <img src="http://res.cloudinary.com/dqvwa7vpe/image/upload/v1496415051/avatar_ma6vug.jpg"/>
+          </div>Agent typically replies in a few hours. Don't miss their reply.
+          <div>
+            <br>
+            <form class="get-notified">
+                <label for="chat_log_email">Get notified by email</label>
+                <input id="chat_log_email" placeholder="Enter your email"/>
+                <i class="zmdi zmdi-chevron-right"></i>
+            </form>
+          </div></span>
+
+      <span class="chat_msg_item chat_msg_item_admin">
+          <div class="chat_avatar">
+             <img src="http://res.cloudinary.com/dqvwa7vpe/image/upload/v1496415051/avatar_ma6vug.jpg"/>
+          </div>Send message to agent.
+          <div>
+            <form class="message_form" onsubmit="return false">
+                <input placeholder="Your email"/>
+                <input placeholder="Technical issue"/>
+                <textarea rows="4" placeholder="Your message"></textarea>
+                <button (click)="send()">Send</button>
+            </form>
+
+      </div></span>
+  </div>
+
+
+  <div id="chat_body" class="chat_body">
+
+      <div class="chat_category">
+      <p>What would you like to talk about?</p>
+      <ul>
+        <li (click)="send()">Tech</li>
+        <li class="active">Sales</li>
+        <li >Pricing</li>
+        <li>other</li>
+      </ul>
+      </div>
+
+  </div>
+
+
+  <div class="fab_field">
+    <a id="fab_camera" class="fab is-visible"><i class="zmdi zmdi-camera"></i></a>
+    <a id="fab_send" (click)="send()" class="fab is-visible"><i class="zmdi zmdi-mail-send"></i></a>
+    <textarea id="chatSend" name="chat_message" placeholder="Send a message" class="chat_field chat_message"></textarea>
+  </div>
+</div>

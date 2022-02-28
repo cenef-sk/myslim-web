@@ -1,0 +1,17 @@
+.flags{
+  text-align: center;
+}
+.flags img {
+vertical-align: middle;
+margin: 20px auto;
+cursor: pointer;
+opacity: 0.2;
+}
+
+.flags img:hover {
+opacity: 0.7;
+}
+
+.flags img.active {
+  opacity: 1;
+}

@@ -1,0 +1,35 @@
+#the-canvas {
+  border: 1px solid white;
+  direction: ltr;
+}
+
+/* #pdf-wrapper {
+  overflow: scroll;
+} */
+
+#the-canvas {
+    position:relative;
+    width:70%;
+    height:70%;
+    overflow:auto;
+}
+
+.next {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 100px;
+}
+.prev {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 30px;
+}
+.download {
+  cursor: pointer;
+  display: inline-block;
+}
+.toolbar {
+  display: block;
+  width: 100%;
+  text-align: center;
+}

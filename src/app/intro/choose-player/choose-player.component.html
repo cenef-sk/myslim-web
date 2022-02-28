@@ -1,0 +1,35 @@
+<div class="join-title">
+  <mat-card *ngIf="!userName" class="example-card">
+    <mat-card-header>
+      <mat-card-title>Pod akým menom budeš vystupovať?</mat-card-title>
+      <mat-card-subtitle>Všetky informácie zadané v aplikácii budú spárované s týmto menom a budú k dispozícii administrátorovi tejto témy.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form" (ngSubmit)="join()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Tvoje meno</mat-label>
+          <input matInput [formControl]="nameFormControl" autocomplete="off">
+          <mat-hint *ngIf="invalidName" style="color: red;">
+            Musíš zadať meno pod ktorým budeš vystupovať
+          </mat-hint>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="action">
+      <button mat-button
+      (click)="join(null)">Vstúpiť</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card *ngIf="userName" class="example-card">
+    <mat-card-header>
+      <mat-card-title>Chceš pokračovať ako <b>{{userName}}</b>?</mat-card-title>
+      <mat-card-subtitle>Ak si už v minulosti túto tému spracovával, tak budeš pokračovať.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions class="action">
+      <button mat-button
+      (click)="no()">Chcem sa prihlásiť ako niekto iný</button>
+      <button mat-button
+      (click)="rejoin()">Áno pokračovať</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

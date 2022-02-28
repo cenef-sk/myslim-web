@@ -1,0 +1,23 @@
+.display-participants {
+  display: block;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+}
+
+.table-participants {
+  width: 100%;
+  text-align: left;
+}
+
+.participants-title {
+  font-size: 20px;
+}
+
+.table-participants th {
+  text-align: center;
+}
+
+.table-participants td {
+  text-align: center;
+}

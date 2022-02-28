@@ -1,0 +1,10 @@
+.free-text-checkboxes label{
+  display: block;
+}
+.answer-buttons {
+  text-align: center;
+  width: 100%;
+}
+.free-text-checkboxes label span {
+  margin-left: 10px;
+}

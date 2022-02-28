@@ -1,0 +1,22 @@
+.answer-area {
+}
+.answer-buttons {
+  text-align: center;
+  width: 100%;
+}
+.answer-checkbox {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.explained-green {
+   color: green;
+}
+
+.explained-red {
+   color: red;
+}
+
+.answer-area label span {
+  margin-left: 10px;
+}

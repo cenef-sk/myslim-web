@@ -1,0 +1,11 @@
+<div class="answer-area">
+  <label *ngFor="let item of question.answers">
+    <input
+    type="radio"
+    name="Coverage"
+    [value]="item" [(ngModel)]="input"  /> {{item.answer}}
+  </label>
+  <div *ngIf="input" class="answer-button">
+    <button mat-raised-button (click)="nextAction()">{{question.button}}</button>
+  <div>
+</div>

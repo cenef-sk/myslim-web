@@ -1,0 +1,9 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Formulujte hypotézu, ktorú chcete overiť.</mat-label>
+    <input matInput [formControl]="hypothesisFormControl" placeholder="napr. Pomocou tabletiek sa dá schudnuť.">
+    <mat-error *ngIf="hypothesisFormControl.hasError('required')">
+      Názov nemôže byť prázdny
+    </mat-error>
+  </mat-form-field>
+</form>

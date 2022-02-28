@@ -1,0 +1,271 @@
+//pred úvodným videom
+Ahoj {name},<>
+Pred tým, ako sa predstavím a začneme spolu komunikovať, chcem ti predstaviť moju skúsenosť cez krátke video :normal_smile:
+//vloženie videa
+
+//pred úvodným komiksom
+Ahoj {name},<>
+Pred tým, ako sa predstavím a začneme spolu komunikovať, chcem ti predstaviť moju skúsenosť cez krátky komiks :normal_smile:
+//vloženie komiksu
+
+
+== no-intro // if no intro just character introduction
+Ahoj {name}! <> //{name} vytiahni meno <>spojenie do suvisleho bloku s dalsim paragrafom
+Ja som Tomáš. Som rád, že teraz spolu strávime čas :normal_smile:
+-> theme
+
+== crititcal-thinking-intro //1 - 17 diagram
+//toto je komentar
+//TODO: toto sa zobrazi pri kompilacii ako TODO list
+
+Ahoj {name}, <> //{name} vytiahni meno <>spojenie do suvisleho bloku s dalsim paragrafom
+Ja som Tomáš. Od poslednej skúsenosti som si stihol niečo naštudovať o kritickom myslení. :normal_smile:
+Vieš, čo som sa dozvedel?
+Vraj kritické myslenie sa považuje za jednu s kľúčových kompetencií pre 21. storočie. Chceš sa aj ty niečo dozvedieť o kritickom myslení?
+* Áno[, mám záujem] -> otazka5
+* Nie[, nemám záujem]
+
+Nechceš ešte pouvažovať?
+Je možné, že už nejaké vedomosti o kritickom myslení máš, ale skús ešte porozmýšľať. :think_smile:
+Aj napriek tvojim poznatkom nemusí byť na škodu si to spolu zopakovať.
+Chceš sa dozvedieť o kritickom myslení viac?
+* Ano[, chcem] -> otazka5
+* Nie[, nechcem]
+
+Nečakal som to.
+Je zaujímavé, že ťa téma kritické myslenie neoslovila. Mohlo by ťa teda aspoň zaujímať, že v Rusku vypestovali zemiak, ktorý vie rozprávať, má IQ 168 a volá se Igor.
+* [Predsa len skúsim to kritické myslenie] Skúsim teda to kritické myslenie -> otazka5
+* [Páči sa mi to a môže to byť pravda] Môže to byť pravda
+
+Bez kritického myslenia to v tomto svete asi nedáš. Ukážem ti zopár trikov spojených s kritickým myslením a mediálnou gramotnosťou. :normal_smile:
+* [Ďalej]
+-> otazka5
+
+== otazka5
+{name}, dostalo sa ku mne niekoľko výrokov o kritickom myslení. Nie všetky sú vraj pravdivé.
+Ktorý z výrokov je podľa teba správny? :think_smile:
+>
+{
+  "type": "radio",
+  "variable": "km_definition",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Kritické myslenie znamená kritickým spôsobom vyvrátiť tvrdenie niekoho iného.",
+      "response": "Vyvrátiť tvrdenie niekoho iného",
+      "value": "1"
+    },
+    {
+      "answer": "Kritické myslenie je snaha o pochopenie akejkoľvek informácie v čo najširších súvislostiach.",
+      "response": "Snaha o pochopenie informácií",
+      "value": "2"
+    },
+    {
+      "answer": "Kritické myslenie je psychologický pohľad na človeka.",
+      "response": "Psychologický pohľad na človeka",
+      "value": "4"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{intro.km_definition = km_definition}
+// 1, 2, 4 bit operation // km & 2
+* {km_definition == '2'}->otazka7
+:think_smile: Nie som si tým istý. Počkaj, napíšem ti, čo sa píše o kritickom myslení.
+* [Ďalej]
+-> otazka7
+
+== otazka7
+Toto som čítal o kritickom myslení ja :normal_smile:
+Kritické myslenie je schopnosť, vďaka ktorej sa dokážeme na informácie pozerať z viacerých uhlov pohľadu.
+Posudzovať, či je informácia pravdivá alebo či sa nesnaží s nami niekto manipulovať.
+Kritickým myslením môžeme posudzovať text, zvuk, video alebo obrázok.
+* [Ďalej]
+Vraj to nie je to schopnosť, ktorú sa dokážeme naučiť za jednú noc :laugh_smile:
+Základom kritického myslenia je premyšľanie o prijímaných informáciách a dátach.
+Mali by sme si stále klásť otázky a zohľadňovať viaceré uhly pohľadu. Je dôležité snažiť sa obmedzovať predsudky voči iným.
+Rozumieš tomu? :laugh_smile:
+* [Ďalej]
+Pozri, aký obrázok som videl.
+
+climate/media-detail1.jpg #img
+
+>
+{
+  "type": "wait",
+  "duration": 3
+}
+<
+
+Aké pocity v tebe tento obrázok vyvoláva?
+>
+{
+  "type": "radio",
+  "variable": "question_emotions",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Prekvapenie",
+      "response": "Prekvapenie",
+      "value": "1"
+    },
+    {
+      "answer": "Hnev",
+      "response": "Hnev",
+      "value": "2"
+    },
+    {
+      "answer": "Strach",
+      "response": "Strach",
+      "value": "4"
+    },
+    {
+      "answer": "Sklamanie",
+      "response": "Sklamanie",
+      "value": "8"
+    },
+    {
+      "answer": "Radosť",
+      "response": "Radosť",
+      "value": "16"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{intro.question_emotions = question_emotions}
+A teraz sa pozri ešte na tento obrázok.
+
+climate/media-detail2.jpg #img
+
+>
+{
+  "type": "wait",
+  "duration": 3
+}
+<
+* [Ďalej]
+
+A tu je posledný!
+
+climate/media-detail3.jpg #img
+
+* [Ďalej]
+
+Chápeš?
+Ja som si pri tom uvedomil, že realita môže byť úplne iná, ako to, čo nám niekto sprostredkuje a čo sa k nám dostane. :sad_smile:
+
+* [Ďalej]
+
+Počul som pár výrokov. Niektoré by mali byť pravdivé, niektoré nie.
+Čo si o nich myslíš ty? Označ, ktoré z tvrdení sú podľa teba pravdivé :think_smile:
+>
+{
+  "type": "explained-check",
+  "variable": "km-what",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Informácia je len začiatkom procesu kritického myslenia, nie jeho výsledkom.",
+      "correct": true,
+      "explanation": "Vysvetlenie: Informácia, ktorá sa k nám dostane, nemusí byť vždy pravdivá a kompletná. Práve prijatie informácie by malo naštartovať proces, kedy začíname nad informáciou uvažovať a hodnotiť."
+    },
+    {
+      "answer": "Efektívne kritické myslenie si vyžaduje iba dobré pozorovacie schopnosti.",
+      "correct": false,
+      "explanation": "Vysvetlenie: Okrem pozorovacích schopnosti si vyžaduje aj mnohé ďalšie vlastnosti a prístupy, ako napríklad analytické a logické myslenie, hľadanie informácií, správne kladenie otázok a podobne."
+    },
+    {
+      "answer": "Kritické myslenie nie je riešenie, je to spôsob, akým riešenie hľadáme.",
+      "correct": true,
+      "explanation": "Vysvetlenie: Kritické myslenie zahŕňa celú skupinu prístupov a postupov ako riešenie nájsť. Kritické myslenie nie je len výsledné riešenie."
+    },
+    {
+      "answer": "Kto chce kritický myslieť, musí používať internet.",
+      "correct": false,
+      "explanation": "Vysvetlenie: Internet môže pomôcť pri získavaní informácií pri hľadaní odpovedí, nie je to nevyhnutná podmienka. Aj v minulosti ľudia kriticky mysleli a nevyužívali počítače."
+    }
+  ],
+  "explanation": "Dozvedel som sa, že existujú iniciatívy a skupiny ľudí, ktorí sledujú stránky a portály, a na základe príspevkov a informácií, ktoré tam sú zverejnené, vytvárajú zoznam stránok, na ktorých sa s väčšou pravdepodobnosťou môžu nachádzať zavádzajúce informácie. Jeden z takých zoznamov sa nachádza aj na stránke: www.konspiratori.sk",
+  "button_validate": "Pokračovať",
+  "button": "Môžeme ísť ďalej"
+}
+<
+{intro.km-what = km-what}
+//(po stlačení sa farebne označujú odpovede zelené správne zaškrtnuté a červené  nesprávne). Pod otázkami sa zobrazí vysvetlenie.
+//po zobrazení správnych odpovedí
+
+Vraj je vhodné získavať informácie a dáta z rôznyh zdrojov. :normal_smile:
+Z akých zdrojov/medii najčastejšie získavaš informácie ty?
+>
+{
+  "type": "free-text-check",
+  "variable": "used_sources",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Online spravodajské servery",
+      "prompt": "text",
+      "placeholder": "prosím uveď príklad"
+    },
+    {
+      "answer": "Rádio",
+      "prompt": "text",
+      "placeholder": "prosím uveď príklad"
+    },
+    {
+      "answer": "Tlač - Noviny, časopisy",
+      "prompt": "text",
+      "placeholder": "prosím uveď príklad"
+    },
+    {
+      "answer": "Televízia",
+      "prompt": "text",
+      "placeholder": "prosím uveď príklad"
+    },
+    {
+      "answer": "Podcasty",
+      "prompt": "text",
+      "placeholder": "prosím uveď príklad"
+    },
+    {
+      "answer": "Vedecké publikácie"
+    },
+    {
+      "answer": "Sociálne siete",
+      "prompt": "text",
+      "placeholder": "prosím uveď príklad"
+    },
+    {
+      "answer": "Kamaráti"
+    },
+    {
+      "answer": "Rodina"
+    },
+    {
+      "answer": "Iné",
+      "prompt": "text",
+      "placeholder": "prosím uveď príklad"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{intro.used_sources = used_sources}
+
+* {used_sources[0][0] == false}-> otazka17 //(Ak zaklikol aj „Online spravodajské servery“, tak na otázku 16 inak otázka 17)
+
+Vidím, že sleduješ informácie aj v online prostredí. Upozornili ma, že na niektorých stránkach môže byť skreslený alebo zavádzajúci obsah.
+* [Ďalej]
+
+-> theme
+
+==otazka17
+Všimol som si, že informácie na online portáloch veľmi nevyhľadávaš. Aj internet môže byť zdrojom zaujímavých informácií. Je dôležite vedieť, ktoré zdroje sú hodnoverné, a na ktorých stránkach sa s väčšou pravdepodobnosťou môžu šíriť zavádzajúce informácie a nedôveryhodný obsah.
+* [Ďalej]
+
+-> theme
+==theme
+* {theme_name == 'climate'}->climate
+* {theme_name == 'general'}->general

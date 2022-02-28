@@ -1,0 +1,10 @@
+#quill {
+  /* border: 1px solid black; */
+  margin: 100px;
+};
+strong {
+ font-weight:bold;
+}
+.ql-editor strong {
+    font-weight:bold;
+}

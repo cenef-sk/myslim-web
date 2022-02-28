@@ -1,0 +1,73 @@
+==questionaire
+Budem rad, ak mi dáš spätnú väzbu k nášmu stretnutiu.
+
+Boli niektoré informácie o kritickom myslení pre teba nové?
+* Áno[]{questionaire.something_new = true}
+* Nie[]{questionaire.something_new = false}
+
+Bola takáto forma vzdelávania pre teba zaujímavá?
+* Áno[]{questionaire.interesting = true}
+* Nie[]{questionaire.interesting = false}
+
+Boli texty a popisy pre teba zrozumiteľne?
+* Áno[]{questionaire.understandable = true} -> q_reccomend
+* Nie[]{questionaire.understandable = false}
+
+Čo nebolo zrozumiteľne? Ktoré texty navrhuješ zmeniť?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.understandable_explained = answer}
+-> q_reccomend
+== q_reccomend
+
+Myslíš si, že by bolo vhodné tento online kurz niekomu odporučiť?
+* Áno[]{questionaire.recommendation = 'yes'}
+* Nie[]{questionaire.recommendation = 'no'}
+* Neviem[]{questionaire.recommendation = 'dontknow'}
+
+Bola vybraná téma pre teba zaujímavá?
+* Áno[]{questionaire.topic_interesting = true} -> q_the_most
+* Nie[]{questionaire.topic_interesting = false}
+
+Aká téma by bola podľa teba zaujímavejšia pre väčšinu mladých ľudí?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.topic_interesting_explained = answer}
+-> q_the_most
+
+==q_the_most
+Čo bolo pre teba najprínosnejšie? Čo ťa najviac zaujalo?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.the_most = answer}
+
+Čo si si po našom rozhovore uvedomil/a ohľadom práce s informáciami?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.perceive = answer}
+
+Chceš mi ešte niečo odkázať.
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.note = answer}
+-> final

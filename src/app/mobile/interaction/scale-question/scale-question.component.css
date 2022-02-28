@@ -1,0 +1,20 @@
+.slider {
+  padding-bottom: 0px;
+  margin-bottom: -20px;
+  width: 100%;
+  text-align: center;
+}
+.slider-result {
+  text-align: center;
+}
+
+.slider-min {
+  float: left;
+}
+.slider-max {
+  text-align: right;
+}
+.answer-button {
+  text-align: center;
+  width: 100%;
+}

@@ -1,0 +1,282 @@
+<mat-card *ngIf="state==0"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Dokument k téme "{{participant.topic.hypothesis}}"</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <mat-form-field class="example-full-width">
+      <mat-label>URL adresa článku</mat-label>
+      <input matInput type="text" [(ngModel)]="document.url" autocomplete="off">
+      <button mat-button *ngIf="document.url" matSuffix mat-icon-button aria-label="Clear" (click)="document.url=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-button
+    *ngIf="shouldContinue && document.url && document.url.length > 2"
+    (click)="next()">Ďalej</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==1"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Názor autora</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-button-question
+      [question] = "[
+        'Autor úplne súhlasí s tvrdením',
+        'Autor skôr súhlasí s tvrdením',
+        'Autor zaujal neutralny postoj k téme',
+        'Autor skôr nesúhlasí s tvrdením',
+        'Autor úplne nesúhlasí s tvrdením'
+        ]"
+      (answer) = "onAnswer2($event)"
+    ></app-button-question>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==2"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Moj nazor</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-button-question
+      [question] = "[
+        'Úplne súhlasím s autorom',
+        'Skôr súhlasím s autorom',
+        'Skôr nesúhlasím s autorom',
+        'Úplne nesúhlasím s autorom'
+        ]"
+      (answer) = "onAnswer3($event)"
+    ></app-button-question>
+  </mat-card-actions>
+</mat-card>
+
+
+<mat-card *ngIf="state==3"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>KTO je autor</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <mat-form-field class="example-full-width">
+      <mat-label>Autor článku</mat-label>
+      <input matInput type="text" [(ngModel)]="document.author" autocomplete="off">
+      <button mat-button *ngIf="document.author" matSuffix mat-icon-button aria-label="Clear" (click)="document.author=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-button
+    *ngIf="shouldContinue && document.author && document.author.length >= 2"
+    (click)="next()">Ďalej</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==4"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Viac o autorovi</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-button-question
+      [question] = "[
+        'Našiel som jeho ďalšiu tvorbu, ale autor sa tejto téme bežne nevenuje',
+        'Autor sa rovnakej téme venuje dlhšiu dobu',
+        'Autora neviem vypátrať',
+        'Autor je dohľadateľný, ale nie je o jeho činnosti dostatok informácií'
+        ]"
+      (answer) = "onAnswer5($event)"
+    ></app-button-question>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==5"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Zdroj príspevku</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <mat-form-field class="example-full-width">
+      <mat-label>Zdroj</mat-label>
+      <input matInput type="text" [(ngModel)]="document.source" autocomplete="off">
+      <button mat-button *ngIf="document.source" matSuffix mat-icon-button aria-label="Clear" (click)="document.source=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-button
+    *ngIf="shouldContinue && document.source && document.source.length > 2"
+    (click)="next()">Ďalej</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==6"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Kto stojí za webovou stránkou</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <mat-form-field class="example-full-width">
+      <mat-label>Prevádzkovateľ</mat-label>
+      <input matInput type="text" [(ngModel)]="document.source_owner" autocomplete="off">
+      <button mat-button *ngIf="document.source_owner" matSuffix mat-icon-button aria-label="Clear" (click)="document.source_owner=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-button
+    *ngIf="shouldContinue && document.source_owner && document.source_owner.length >=2"
+    (click)="next()">Ďalej</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==7"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Na aký účel stránka aktuálne slúži?</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-free-text-checkboxes-question
+      [question] = "ucel"
+      (answer) = "onAnswer6($event)"
+    ></app-free-text-checkboxes-question>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==8"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Dôveryhodnosť</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-scale-question
+      [question] = "dovera"
+      (answer) = "onAnswer7($event)"
+    ></app-scale-question>
+  </mat-card-actions>
+</mat-card>
+
+
+<mat-card *ngIf="state==9"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Predmet a cieľ príspevku:</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-free-text-checkboxes-question
+      [question] = "ciel"
+      (answer) = "onAnswer8($event)"
+    ></app-free-text-checkboxes-question>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==10"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>S akými zdrojmi a materiálmi autor pracoval?</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <mat-form-field class="example-full-width">
+      <mat-label>Referencie</mat-label>
+      <input matInput type="text" [(ngModel)]="document.references" autocomplete="off">
+      <button mat-button *ngIf="document.references" matSuffix mat-icon-button aria-label="Clear" (click)="document.references=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-button
+    *ngIf="shouldContinue && document.references && document.references.length >= 2"
+    (click)="next()">Ďalej</button>
+  </mat-card-actions>
+</mat-card>
+
+
+<mat-card *ngIf="state==11"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Akými prostriedkami sa autor snaží zaujať?</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-expandable-checkboxes-question
+      [question] = "zaujat"
+      (answer) = "onAnswer9($event)"
+    ></app-expandable-checkboxes-question>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==12"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>KOMU je príspevok určený?</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <mat-form-field class="example-full-width">
+      <mat-label>Pre koho</mat-label>
+      <input matInput type="text" [(ngModel)]="document.to_who" autocomplete="off">
+      <button mat-button *ngIf="document.to_who" matSuffix mat-icon-button aria-label="Clear" (click)="document.to_who=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-button
+    *ngIf="shouldContinue && document.to_who && document.to_who.length >=2"
+    (click)="next()">Ďalej</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==13"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Je článok cielený aj na teba?</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-button-question
+      [question] = "['áno','nie','neviem']"
+      (answer) = "onAnswer10($event)"
+    ></app-button-question>
+  </mat-card-actions>
+</mat-card>
+
+
+<mat-card *ngIf="state==14"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>PREČO bola táto informácia (príspevok) vytvorený?</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="action">
+    <app-free-text-checkboxes-question
+      [question] = "preco"
+      (answer) = "onAnswer11($event)"
+    ></app-free-text-checkboxes-question>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="state==15"  class="example-card">
+  <mat-card-header>
+    <mat-card-title>Pridať nový dokument</mat-card-title>
+  </mat-card-header>
+
+  <!-- <mat-card-content>
+    <form class="example-form" (ngSubmit)="change()">
+      <mat-form-field appearance="fill" class="example-full-width"
+      >
+        <mat-label>Vytvoriť tému na základe šablóny</mat-label>
+        <mat-select [formControl]="templateFormControl" required>
+          <mat-option value="chat-climatic">Chat - Klimatické zmeny</mat-option>
+          <mat-option value="chat-generic">Chat - Vlastná téma</mat-option>
+          <mat-option value="form-generic">Formulár - Vlastná téma</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Názov témy</mat-label>
+        <input matInput [formControl]="nameFormControl">
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Názov nemôže byť prázdny
+        </mat-error>
+      </mat-form-field>
+      <mat-checkbox *ngIf="isAdmin()" [formControl]="publicTrialControl" class="example-margin">Verejná pracovná skupina</mat-checkbox>
+    </form>
+  </mat-card-content>
+  <mat-card-content>
+    <app-chat-climatic-settings *ngIf="templateFormControl.value == 'chat-climatic'"
+    (answer) = "onChatClimaticData($event)"
+    ></app-chat-climatic-settings>
+    <app-chat-settings *ngIf="templateFormControl.value == 'chat-generic'"
+    (answer) = "onChatGenericData($event)"
+    ></app-chat-settings>
+    <app-form-settings *ngIf="templateFormControl.value == 'form-generic'"
+    (answer) = "onFormGenericData($event)"
+    ></app-form-settings>
+  </mat-card-content>
+  <mat-label>Kliknutím tlačidla vytvoriť vytvoríte novú tému a k nej pracovnú skupinu prístupnú pod kódom <b>{{code}}</b></mat-label> -->
+  {{document.url}}
+  <mat-card-actions class="action">
+    <button mat-button
+    (click)="create()">Vytvoriť</button>
+    <button mat-button
+    (click)="cancel()">Zrušiť</button>
+  </mat-card-actions>
+</mat-card>

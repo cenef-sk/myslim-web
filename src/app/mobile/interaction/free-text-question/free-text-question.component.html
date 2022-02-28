@@ -1,0 +1,19 @@
+<mat-card-actions class="chat-actions">
+  <mat-form-field class="example-full-width" autofilled="false" appearance="outline">
+    <input matInput placeholder="Tvoja odpoveď" autocomplete="off"
+    [(ngModel)]="input" (keyup.enter)="nextAction()">
+    <button mat-button  matSuffix mat-icon-button aria-label="Send" (click)="nextAction()">
+      <mat-icon>send</mat-icon>
+    </button>
+  </mat-form-field>
+</mat-card-actions>
+
+
+<!-- <div class="dialog-message">
+  <mat-form-field appearance="fill" class="example-full-width">
+    <input type="text"
+    matInput
+    [(ngModel)]="input">
+  </mat-form-field>
+  <button mat-raised-button (click)="nextAction()">{{question.getButton()}}</button>
+</div> -->

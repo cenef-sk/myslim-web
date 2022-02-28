@@ -1,0 +1,120 @@
+<!-- <div class="dialog3">
+  <img class="screenshot" src="./assets/statistics.png"/>
+  <div class="d2Buttons">
+    <button (click)="back()" type="button" class="btn btn-primary">Späť</button>
+  </div>
+</div> -->
+<div *ngIf="dataOk()" class="summary-description-wrapper">
+  <div class="summary-description">
+    <h2>Prehľad pre tému {{trial.topic.name}}</h2>
+    <div>
+      Zberu dát sa zúčastnilo {{trial.count}} respondentov, ktorí vložili {{documents.length}} dokumentov.
+    </div>
+    <div>
+      Nasledujúce grafy zobrazujú príspevky jednotlivých účastníkov a pohľad na jednotlivé články.
+    </div>
+  </div>
+</div>
+
+<!-- <div class="summary-notes">
+  <quill-editor [styles]="editorStyle" placeholder="Enter Text"
+  [modules]="modules"
+  [(ngModel)]="htmlText">
+  </quill-editor>
+</div> -->
+
+<div class="new-document">
+  <mat-expansion-panel (opened)="sourcesState = true"
+                       (closed)="sourcesState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Zdroje
+      </mat-panel-title>
+      <!-- <mat-panel-description>
+        {{questionaireOpenState ? '' : 'questionaireOpenState'}}
+      </mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <div class="answers">
+    <p *ngFor="let item of sources">{{item}}</p>
+    </div>
+  </mat-expansion-panel>
+
+</div>
+
+<div class="new-document">
+  <mat-expansion-panel (opened)="urlState = true"
+                       (closed)="urlState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Zoznam všetkých dokumentov
+      </mat-panel-title>
+      <!-- <mat-panel-description>
+        {{questionaireOpenState ? '' : 'questionaireOpenState'}}
+      </mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <div class="answers">
+      <p *ngFor="let item of urls">{{item}}</p>
+    </div>
+  </mat-expansion-panel>
+
+</div>
+
+<div class="summary-description-wrapper">
+  <div class="charts">
+  <div *ngIf="dataOk() && isClimatic" class="chart">
+    <div class="title">Výber témy</div>
+    <canvas baseChart
+            [data]="labels4Data"
+            [labels]="labels4"
+            [chartType]="pieChartType"></canvas>
+  </div>
+
+  <div *ngIf="dataOk() && labels1Data" class="chart">
+    <div class="title">Postoj autora k téme</div>
+    <canvas baseChart
+            [data]="labels1Data"
+            [labels]="labels1"
+            [chartType]="pieChartType"></canvas>
+  </div>
+  <div *ngIf="dataOk() && labels3Data" class="chart">
+    <div class="title">Súhlas s autorom</div>
+    <canvas baseChart
+            [data]="labels3Data"
+            [labels]="labels3"
+            [chartType]="pieChartType"></canvas>
+  </div>
+
+  <!-- <div class="chart">
+    <div class="title">Doveryhodnost zdrojov</div>
+    <canvas baseChart
+      [data]="doughnutChartData"
+      [labels]="doughnutChartLabels"
+      [chartType]="doughnutChartType">
+    </canvas>
+  </div> -->
+   <div *ngIf="dataOk() && labels2Data" class="chart">
+    <div class="title">Hlavné prostriedky autorov</div>
+    <canvas baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
+  <!--<div class="chart">
+    <div class="title">Doveryhodnost clankov u participantov</div>
+    <canvas baseChart
+      [datasets]="radarChartData"
+      [options]="radarChartOptions"
+      [labels]="radarChartLabels"
+      [chartType]="radarChartType">
+    </canvas>
+  </div> -->
+  </div>
+</div>
+
+<app-display-participants
+[noParticipantTitle]="'Momentálne nemáte žiadného respondenta.'"
+[trialId]="trialId"></app-display-participants>

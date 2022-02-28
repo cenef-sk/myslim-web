@@ -1,0 +1,276 @@
+== annotation-simple // 52 - 66 diagram
+Please send me a link to a next chosen post related to the topic that we will be working on. :normal_smile:
+//text, (nesmie byť prázdné, začina na www alebo http  a končí .text)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.url = answer}
+Excellent  {name} :normal_smile:
+What stance does the author take in their post towards the statement {hypothesis} ?
+
+* Author fully agrees with the statement[] {hypothesis}{document.author_opinion = 5}
+* Author rather agrees with the statement[] {hypothesis}{document.author_opinion = 4}
+* Author is neutral towards the topic[] {hypothesis}{document.author_opinion = 3}
+* Author rather disagrees with the statement[] {hypothesis}{document.author_opinion = 2}
+* Author totally disagrees with the statement[] {hypothesis}{document.author_opinion = 1}
+
+And what do you think about it? :think_smile:
+* I totally agree with the author[]{document.agree_with_author = 5} // TODO check is multi _ problem?
+* I rather agree with the author[]{document.agree_with_author = 4}
+* I rather disagree with the author[]{document.agree_with_author = 2}
+* I totally disagree with the author[]{document.agree_with_author = 1}
+
+
+WHO is the author?
+
+//Text (nie prázdna hodnota) (uveď „neviem“ v prípade, že sa ti meno autora nepodarilo zistiť)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.author = answer}
+Find a profile of the author and his other works. Can you find out more about his work?
+* I´ve found his other work, but the author is not usually involved in this topic[]{document.author_additional = 1}
+* Author is involved in the same topic for a longer time[]{document.author_additional = 2}
+* I can´t find the author online[]{document.author_additional = 3}
+* I can find the author, but there is not enough information about their work[]{document.author_additional = 4}
+
+Please also state the source of the post (website, where the post is published).
+
+//Text (nie prázdna hodnota alebo http... www.text.text)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.source = answer}
+
+
+Who is behind the website, where the post is published? (State the name of e.g. person, political party, firm, group of specialists on the topic, it´s not related, etc.)
+
+//Text (nie prázdna hodnota)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.source_owner = answer}
+
+What is the objective of the page? :think_smile:
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Academic information"
+    },
+    {
+      "answer": "Fun"
+    },
+    {
+      "answer": "Blog"
+    },
+    {
+      "answer": "Personal marketing"
+    },
+    {
+      "answer": "News"
+    },
+    {
+      "answer": "Marketing (advertisement) "
+    },
+    {
+      "answer": "Discussion forum"
+    },
+    {
+      "answer": "Social network"
+    },
+    {
+      "answer": "Causing panic"
+    },
+    {
+      "answer": "Other",
+      "prompt": "text"
+    }
+  ],
+  "button": "Next"
+}
+<
+{document.main_aim = answer}
+
+Do you think this source of information is trustworthy? Does it publish truthful posts that are representing reality?
+
+// (Posuvník na určovanie škály, alebo škálovacie hodnoty 1 -10)  Dôveryhodný, nedôveryhodný
+>
+{
+  "type": "scale",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.credibility = answer}
+WHAT is the goal of the post?
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "To inform"
+    },
+    {
+      "answer": "To make fun"
+    },
+    {
+      "answer": "To express an opinion "
+    },
+    {
+      "answer": "To spread fear"
+    },
+    {
+      "answer": "To cause panic"
+    },
+    {
+      "answer": "To advertise (an item, service, person, political party)"
+    },
+    {
+      "answer": "To discuss"
+    },
+    {
+      "answer": "To enlighten"
+    },
+    {
+      "answer": "Other",
+      "prompt": "text"
+    }
+  ],
+  "button": "Next"
+}
+<
+{document.content_aim = answer}
+Where from did the author take the information when writing the post?
+//“Text” (keď klikne na +, pridá sa ďalšie textové pole)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "recommendation": "Note: think about resources… Is the author trying to show the whole issue, or is he promoting only his position, or did they take some information out of context? It is necessary to verify the source again, the author.",
+  "button": "Next"
+}
+<
+{document.references = answer}
+
+HOW does the author convey the information? :think_smile: <>
+What tools do they use to pick your interest?
+
+>
+{
+  "type": "expand-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Pictures",
+      "recommendation": "What to think about: current, out of date, photography, illustration, infographics, related to the topic, unrelated to the topic."
+    },
+    {
+      "answer": "Videos",
+      "recommendation": "What to think about: current, out of date, animation, reality, related to the topic, unrelated to the topic, body language."
+    },
+    {
+      "answer": "Statistics",
+      "recommendation": "Data and statistical surveys are often misrepresented. They are the most common source of errors with a great impact on the lay but also on the professional public."
+    },
+    {
+      "answer": "Clickbaits",
+      "recommendation": "Clickbait is a type of text that primarily aims to entice a user to click on a particular link, article title, or video."
+    },
+    {
+      "answer": "Text and spoken word",
+      "recommendation": "What to think about: emotionally colored language, vulgar language, unprofessionalism, playing emotions, clickbaits, argumentative fouls."
+    }
+  ],
+  "button": "Next"
+}
+<
+{document.tools = answer}
+
+WHO is the target of the post?
+//Text (nie prázdna hodnota)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "recommendation": "Recommendation: the comments and responses below the post can help you find the answer to this question. You will notice how people react to this post and what interested them.",
+  "button": "Next"
+}
+<
+{document.to_who = answer}
+
+Is this post targeted to you?
+* Yes[]{document.me = 1}
+* Not[]{document.me = 2}
+* I do not know[]{document.me = 3}
+
+WHY was this post created?
+Think about what the article is about and what the context is.
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Legislation (eg changes in laws are planned)"
+    },
+    {
+      "answer": "Informing (eg to introduce the reader to the issue)"
+    },
+    {
+      "answer": "Promotion (eg a new product is launched)"
+    },
+    {
+      "answer": "Increase page traffic (e.g. clickbaits)"
+    },
+    {
+      "answer": "Other (please specify)",
+      "prompt": "text"
+    }
+  ],
+  "button": "Next"
+}
+<
+{document.why = answer}
+
+{documents[doc_num] = document}
+//TODO {document = 0}
+{doc_num = doc_num + 1}
+
+* {min_doc_num > doc_num}-> annotation-simple
+
+And again, I want to highlight that the more trustworthy information we have, the best we can hold our stance :normal_smile:
+Would you like to add another post to the statement we are dealing with <b>{hypothesis}</b>?
+* [Yes, I want to add another post] Yes -> annotation-simple
+* [No, I have enough information about the topic] No -> opinion-check
+
+/*
+Zaujímavé linky (do odporúčaní):
+
+https://infosecurity.sk/category/dezinfo/
+https://blbec.online/
+https://www.konspiratori.sk/
+*/

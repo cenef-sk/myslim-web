@@ -1,0 +1,9 @@
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/O8vFvFxvny8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div *ngIf="newMessage" class="next-button" (click)="goToMessage()">
+  <button mat-icon-button matSuffix mat-icon-button aria-label="Clear" >
+    <mat-icon matBadge="1" matBadgeColor="warn" color="primary">email</mat-icon>
+  </button>
+  <p>
+    <mat-label>Máte jednú novú správu!</mat-label>
+  </p>
+</div>

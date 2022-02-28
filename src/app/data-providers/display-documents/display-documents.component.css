@@ -1,0 +1,33 @@
+.documents {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  padding-top: 10px;
+}
+.noTitle {
+  padding-top: 100px;
+  text-align: center;
+}
+
+.answers {
+  text-align: left;
+}
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+.mat-expansion-panel-header-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

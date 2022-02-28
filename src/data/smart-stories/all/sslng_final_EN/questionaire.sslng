@@ -1,0 +1,73 @@
+==questionaire
+I'd love for you to give me feedback on our meeting :normal_smile:
+
+Was any information about critical thinking new to you?
+* Yes[]{questionaire.something_new = true}
+* Not[]{questionaire.something_new = false}
+
+Was this form of education interesting for you?
+* Yes[]{questionaire.interesting = true}
+* Not[]{questionaire.interesting = false}
+
+Were the texts and descriptions clear to you?
+* Yes[]{questionaire.understandable = true} -> q_reccomend
+* Not[]{questionaire.understandable = false}
+
+What was not clear?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.understandable_explained = answer}
+-> q_reccomend
+== q_reccomend
+
+Do you think it would be appropriate to recommend this online course to someone?
+* Yes[]{questionaire.recommendation = 'yes'}
+* Not[]{questionaire.recommendation = 'not'}
+* I do not know[]{questionaire.recommendation = 'dontknow'}
+
+Was the chosen topic interesting for you?
+* Yes[]{questionaire.topic_interesting = true} -> q_the_most
+* Not[]{questionaire.topic_interesting = false}
+
+Which topic would you find more interesting?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.topic_interesting_explained = answer}
+-> q_the_most
+
+==q_the_most
+What was most beneficial for you? What intrigued you the most?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.the_most = answer}
+
+What did you realize about working with information after our online meeting? :think_smile:
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.perceive = answer}
+
+Do you want to tell something else? :normal_smile:
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.note = answer}
+-> final

@@ -1,0 +1,451 @@
+== annotation-ext //18 - 44 diagram
+Možno už máš nejaké informácie k tejto téme a možno máš nejaký názor bez relevantných informácií. {name}, aký je tvoj názor na tvrdenie, že <b>{hypothesis}</b>?
+* Úplne súhlasím[] {opinion = 1}
+* Skôr súhlasím[] {opinion = 2}
+* Skôr nesúhlasím[] {opinion = 3}
+* Úplne nesúhlasím[] {opinion = 4}
+* Neviem, nemám informácie[] {opinion = 5} -> otazka22
+{intro.opinion = opinion}
+
+Vraj súčasťou kritického myslenia je vedieť informácie aj sprostredkovať, odôvodniť a vyargumentovať.
+Skús mi, prosím, vysvetliť a odôvodniť, prečo máš taký názor? :normal_smile:
+// „text“ (definovať min. a max. počet znakov 20 - 300)
+>
+{
+  "type": "text",
+  "variable": "opinion_explanation",
+  "button": "Pokračovať"
+}
+<
+{intro.opinion_explanation = opinion_explanation}
+-> otazka22
+== otazka22
+{name}, poďme sa vrátiť k tvrdeniu, že <b>{hypothesis}</b>. Kde by bolo podľa teba vhodné získavať informácie k tejto téme? :think_smile:
+>
+{
+  "type": "free-text-check",
+  "variable": "tools",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Google",
+      "prompt": "text",
+      "placeholder": "Aké slová vyhľadáš?"
+    },
+    {
+      "answer": "YouTube",
+      "prompt": "text",
+      "placeholder": "Aké slová vyhľadáš?"
+    },
+    {
+      "answer": "Instagram",
+      "prompt": "text",
+      "placeholder": "Aké slová vyhľadáš?"
+    },
+    {
+      "answer": "Facebook",
+      "prompt": "text",
+      "placeholder": "Aké slová vyhľadáš?"
+    },
+    {
+      "answer": "Spravodajské weby",
+      "prompt": "text",
+      "placeholder": "Uveď názvy webov."
+    },
+    {
+      "answer": "TikTok",
+      "prompt": "text",
+      "placeholder": "Aké slová vyhľadáš?"
+    },
+    {
+      "answer": "Noviny, časopisy",
+      "prompt": "text",
+      "placeholder": "Uveď ktoré."
+    },
+    {
+      "answer": "Odborné publikácie",
+      "prompt": "text",
+      "placeholder": "Uveď názov publikácie."
+    },
+    {
+      "answer": "Odborník",
+      "prompt": "text",
+      "placeholder": "Čomu sa venuje?"
+    },
+    {
+      "answer": "Kamarát",
+      "prompt": "text",
+      "placeholder": "Uveď prečo."
+    },
+    {
+      "answer": "Učiteľ v škole",
+      "prompt": "text",
+      "placeholder": "Uveď prečo."
+    },
+    {
+      "answer": "Rodič alebo niekto v rodine",
+      "prompt": "text",
+      "placeholder": "Uveď prečo."
+    },
+    {
+      "answer": "Iné",
+      "prompt": "text",
+      "placeholder": "Uveď ďalšie zdroje."
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{intro.tools = tools}
+Super, {name}:normal_smile:Je dôležité rozmýšľať nad tým, kde hľadať informácie a overovať si ich z viacerých (ideálne hodnoverných) zdrojov a odborných materiálov.
+Potrebné informácie môžeme nájsť nie len na internete, ale aj u ľudí, ktorých poznáme.
+* [Ďalej]
+-> new-document
+
+== new-document
+
+A teraz príde tá časť, kde začne pracovať mozog na plné obrátky :laugh_smile:
+Vyhľadaj na interete príspevok súvisiací s témou, ktorú riešime: <b>{hypothesis}</b>.
+S týmto príspevkom budeme ďalej pracovať, tak si ho celý prečítaj. Pošli mi odkaz (link) na vybraný príspevok súvisiaci s témou :think_smile:
+// text, (nesmie byť prázdne, začína na www alebo http  a končí .text)
+
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.url = answer}
+Skvelá práca {name}!
+Ďakujem, že to so mnou zdieľaš. Verím, že ho máš preštudovaný :normal_smile: Aký postoj k tvrdeniu <b>{hypothesis}</b> v príspevku zaujal autor?
+
+* Autor úplne súhlasí s tvrdením.[] {hypothesis}{document.author_opinion = 5}
+* Autor skôr súhlasí s tvrdením.[] {hypothesis}{document.author_opinion = 4}
+* Autor zaujal neutralny postoj k téme.[] {hypothesis}{document.author_opinion = 3}
+* Autor skôr nesúhlasí s tvrdením.[] {hypothesis}{document.author_opinion = 2}
+* Autor úplne nesúhlasí s tvrdením.[] {hypothesis}{document.author_opinion = 1}
+
+{name}, a čo si o článku a informáciach od autora mysliš Ty? :think_smile:
+
+* Úplne súhlasím s autorom.[] {document.agree_with_author = 5} //hack space? //TODO -NUMBER does not work!!!
+* Skôr súhlasím s autorom.[] {document.agree_with_author = 4}
+* Skôr nesúhlasím s autorom.[] {document.agree_with_author = 2}
+* Úplne nesúhlasím s autorom.[] {document.agree_with_author = 1}
+
+A vieš čo? :think_smile:
+Vraj je dôležité klásť otázky a pýtať sa.
+Pri posudzovaní pravdivosti alebo miery manipulácie príspevku sa odporúča preveriť si informácie a zodpovedať na niektoré otázky.
+Ako pomôcku môžeme použiť 5 kľúčových otázok mediálnej gramotnosti: <b>Kto? Čo? Ako? Komu? Prečo?</b> :normal_smile:
+
+* [Ďalej]
+
+Poďme teda na prvú z kľúčových otázok mediálnej gramotnosti. KTO? :normal_smile:
+Kto je autorom? Napíš jeho meno.
+
+//Text (nie prázdna hodnota) (napíš „neviem“ v prípade, že sa ti meno autora nepodarilo zistiť)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.author = answer}
+Poďme sa pozrieť na autora bližšie :normal_smile:
+Skús nájsť profil autora a jeho ďalšiu prácu. Vieš o ňom zistiť viac?
+
+* Našiel som jeho ďalšiu tvorbu, ale autor sa tejto téme bežne nevenuje.[]{document.author_additional = 1}
+* Autor sa rovnakej téme venuje dlhšiu dobu.[]{document.author_additional = 2}
+* Autora neviem vypátrať.[]{document.author_additional = 3}
+* Autor je dohľadateľný, ale o jeho činnosti nie je dostatok informácií.[]{document.author_additional = 4}
+
+S autorom súvisí aj zdroj, na ktorom publikuje, kde zdieľa informácie.
+Napíš mi zdroj tohto príspevku (stránka, názov novín).
+
+//Text (nie prázdna hodnota alebo http... www.text.text)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.source = answer}
+
+Aby toho nebolo malo... :think_smile: <>
+Kto stojí za webovou stránkou, na ktorej je príspevok zverejnený? (Napiš meno alebo názov napr. osoby, politickej strany, firmy, média, skupiny odborníkov na danú tému, nie je to uvedené, a pod.)
+
+//Text (nie prázdna hodnota)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.source_owner = answer}
+
+Stránku máš teda určite preštudovanú :normal_smile: Na aký účel stránka aktuálne slúži?
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Odborné informácie"
+    },
+    {
+      "answer": "Zábava"
+    },
+    {
+      "answer": "Blog"
+    },
+    {
+      "answer": "Osobné prezentovanie"
+    },
+    {
+      "answer": "Spravodajstvo"
+    },
+    {
+      "answer": "Propagácia (reklama)"
+    },
+    {
+      "answer": "Diskusné fórum"
+    },
+    {
+      "answer": "Sociálna sieť"
+    },
+    {
+      "answer": "Vyvolanie paniky"
+    },
+    {
+      "answer": "Iné",
+      "prompt": "text"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{document.main_aim = answer}
+
+Je podľa teba tento zdroj informácií dôveryhodný? Zverejňujú sa na ňom pravdivé a neskreslené príspevky?
+
+// (Posuvník na určovanie škály, alebo škálovacie hodnoty 1 -10)  Dôveryhodný, nedôveryhodný
+//TODO
+>
+{
+  "type": "scale",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{document.credibility = answer}
+
+Pozri, koľko informácií sme zistili pri hľadaní odpovedí na otázku KTO.
+
+{name}, poďme sa teraz pozrieť na druhú otázku - ČO? ČO je obsahom daného príspevku?
+Zamyslí sa nad otázkou :think_smile: <>
+Aký je cieľ príspevku?
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Informovať"
+    },
+    {
+      "answer": "Pobaviť"
+    },
+    {
+      "answer": "Vyjadriť názor"
+    },
+    {
+      "answer": "Zastrašiť"
+    },
+    {
+      "answer": "Vyvolať rozruch"
+    },
+    {
+      "answer": "Propagovať (výrobok, službu, osobnosť, polit. stranu)"
+    },
+    {
+      "answer": "Diskutovať"
+    },
+    {
+      "answer": "Osveta"
+    },
+    {
+      "answer": "Iné",
+      "prompt": "text"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{document.content_aim = answer}
+Ja som si v príspevku všimol pár zaujímavosti :think_smile:
+Nájdeš ich aj ty?
+Odkiaľ autor čerpal informácie pri písaní príspevku? Môžeš uviesť meno, stránku, firmu, článok, organizáciu a pod.
+//“Text” (keď klikne na +, pridá sa ďalšie textové pole)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "recommendation": "Poznámka: zamyslieť sa nad zdrojmi… Snaží sa autor ukázať celú problematiku alebo propaguje len svoj postoj, prípadne vytiahol niektoré informácie z kontextu? Je potrebné si opäť overiť zdroj, autora.",
+  "button": "Ďalej"
+}
+<
+{document.references = answer}
+
+{name}, ešte stále máme čo robiť :normal_smile:
+Každá informácia sa dá podať viacerými spôsobmi.<>
+Poďme na ďalšiu kľúčovú otázku AKO?  Akými prostriedkami autor informáciu podáva?
+//Checkboxy (okruhy oblasti):
+
+>
+{
+  "type": "expand-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Obrázky",
+      "recommendation": "Nad čím sa zamyslieť: aktuálne, neaktuálne, fotografia, ilustrácia, infografika, súvisiace s témou, nesúvisiace s témou."
+    },
+    {
+      "answer": "Videá",
+      "recommendation": "Nad čím sa zamyslieť: aktuálne, neaktuálne, animácia, realita, súvisiace s témou, nesúvisiace s témou, reč tela."
+    },
+    {
+      "answer": "Štatistiky",
+      "recommendation": "Často sa nesprávne prezentujú dáta a štatistické výskumy. Bývajú najčastejším zdrojom chýb s veľkým vplyvom na laickú ale i na odbornú verejnosť."
+    },
+    {
+      "answer": "Clickbaity",
+      "recommendation": "Clickbait je druh textu, ktorý má v prvom rade za cieľ nalákať užívateľa na kliknutie na určitý odkaz, titulok článku či k prehraniu videa."
+    },
+    {
+      "answer": "Text a hovorené slovo",
+      "recommendation": "Nad čím sa zamyslieť: citovo zafarbený jazyk, vulgárny jazyk, neodbornosť, hranie na emócie, clickbaity, argumentačné fauly (odkaz v bubline, kde sú informácie k téme)."
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{document.tools = answer}
+Už sme za polovicou kľúčových otázok :normal_smile:
+Ďalšia z otázok poukazuje na to, KOMU je príspevok určený? Kto je cieľová skupina? (napr. široká verejnosť, mladí ľudia, seniori,...) :think_smile:
+//Text (nie prázdna hodnota)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "recommendation": "Odporúčanie: pri hľadaní odpovede na túto otázku ti môžu pomôcť komentáre a reakcie pod príspevkom. Všimneš, kto na tento príspevok reagoval a čo ho zaujalo?",
+  "button": "Ďalej"
+}
+<
+{document.to_who = answer}
+
+Je tento príspevok cielený aj na teba?
+* Áno[]{document.me = 1}
+* Nie[]{document.me = 2}
+* Neviem[]{document.me = 3}
+
+A je tu posledná zo spomínaných otázok :normal_smile:
+PREČO bol tento príspevok vytvorený?
+Zamysli sa nad tým, s čím daný článok súvisí a aký je kontext.
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Legislatíva (napr. plánujú sa zmeny v zákonoch)"
+    },
+    {
+      "answer": "Informovanie (napr. uviesť čitateľa do problematiky)"
+    },
+    {
+      "answer": "Propagácia (napr. uvádza sa nový produkt na trh)"
+    },
+    {
+      "answer": "Zvýšenie návštevnosti stránky (napr. clickbaity)"
+    },
+    {
+      "answer": "Iné (uveď)",
+      "prompt": "text"
+    }
+  ],
+  "button": "Ďalej"
+}
+<
+{document.why = answer}
+
+{documents[doc_num] = document}
+//TODO empty document, currently outside of engine
+{doc_num = doc_num + 1}
+Teraz sme si zodpovedali len na kľúčové otázky. Samozrejme, pri každom príspevku môžeš hľadať odpovede na ďalšie otázky :normal_smile:
+Čím viac informácií a podkladov máme, tým lepšie sa vieme rozhodnúť a zaujať postoj k riešenej situácií.
+* {min_doc_num > doc_num}-> annotation-simple
+Chceš nájsť ďalší príspevok k tvrdeniu, ktoré riešime <b>{hypothesis}</b>? :think_smile:
+* Áno, chcem pridať ďalší príspevok -> annotation-simple //(skoč na 24 (pri ďalšom cykle nebudú sprievodné informácie, len pomocné bubliny)),
+* Nie, mám dostatok informácií k téme
+-> opinion-check
+
+== opinion-check
+Aký máš teraz názor na tvrdenie, že <b>{hypothesis}</b>? :think_smile:
+* Úplne súhlasím[]{new_opinion = 1}
+* Skôr súhlasím[]{new_opinion = 2}
+* Skôr nesúhlasím[]{new_opinion = 3}
+* Úplne nesúhlasím[]{new_opinion = 4}
+* Neviem sa vyjadriť[]{new_opinion = 5} -> opinion-unknown
+{intro.new_opinion = new_opinion}
+{hack = 2} // toto je hack
+// differenet branches
+
+* {opinion == new_opinion}-> opinion-the-same
+* {opinion != new_opinion}-> opinion-different
+
+== opinion-different
+//(ak je odlišná odp. 20 a 40)
+Tvoj postoj na tvrdenie {hypothesis} sa zmenil. Čo prispelo k zmene tvojho názoru?
+// Text  (nie prázdna hodnota, definovať min a max počet znakov 20 - 300)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{intro.change_explained = answer}
+-> conclusion
+
+== opinion-the-same
+//(ak je rovnaká odp. 20 a 40)
+Tvoj postoj na tvrdenie <b>{hypothesis}</b> sa nezmenil. Čo ťa utvrdilo v tomto tvojom postoji?
+// Text (nie prázdna hodnota, definovať min a max počet znakov 20 - 300)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Ďalej"
+}
+<
+{intro.equal_explained = answer}
+-> conclusion
+
+== opinion-unknown
+Tvoj postoj je nerozhodný. Možno by stálo za zváženie nájsť ďalší príspevok, ktorý by doplnil tvoje poznatky o téme <b>{hypothesis}</b>. A potom možno zaujmeš iný postoj k téme.
+Chceš pridať ďalší príspevok? :think_smile:
+* Áno -> annotation-simple
+* Nie
+
+Je škoda, že nezvažuješ dohľadávanie ďalších informácií. :sad_smile: Práve dostatok informácií a ich analýza je základným predpokladom kritického myslenia.
+Chceš sa pokúsiť pridať ďalší príspevok?
+* Áno -> annotation-simple
+* Nie -> conclusion

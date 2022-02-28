@@ -1,0 +1,49 @@
+.join-title {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  max-width: 700px;
+}
+.example-card {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .join-title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width:  100%;
+    max-width: 700px;
+  }
+
+  .example-card {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
+}
+.example-card .action {
+  text-align: center;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

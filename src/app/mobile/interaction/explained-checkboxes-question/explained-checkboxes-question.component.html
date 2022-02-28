@@ -1,0 +1,25 @@
+<div class="answer-area">
+  <label *ngFor="let item of question.answers; let i = index">
+    <mat-checkbox *ngIf="!getIsChecked()"
+      type="checkbox"
+      [(ngModel)]="input[i]"
+      [ngModelOptions]="{standalone: true}"
+      class="answer-checkbox"
+      >
+      </mat-checkbox>
+      <mat-icon *ngIf="getIsChecked() && item.correct == input[i]" mat-list-icon style="color: green;">check</mat-icon>
+      <mat-icon *ngIf="getIsChecked() && item.correct != input[i]"mat-list-icon style="color: red;">close</mat-icon>
+      <span [ngClass]="{
+        'explained-red': (getIsChecked() && item.correct != input[i]),
+        'explained-green': (getIsChecked() && item.correct == input[i])
+      }">{{item.answer}}</span>
+      <div *ngIf="getIsChecked()">{{item.explanation}}</div>
+  </label>
+
+  <div class="answer-buttons">
+    <!-- <div *ngIf="getIsChecked()" [innerHTML]="question.getLastMessage()"></div> -->
+
+    <button *ngIf="!getIsChecked()" mat-raised-button (click)="checkAction()">{{question.button_validate}}</button>
+    <button *ngIf="getIsChecked()" mat-raised-button (click)="nextAction()">{{question.button}}</button>
+  </div>
+</div>

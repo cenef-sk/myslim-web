@@ -1,0 +1,97 @@
+<div *ngIf="!showIntro" id="quill">
+    <quill-editor [styles]="editorStyle" placeholder="Enter Text"
+    [modules]="modules"
+    [(ngModel)]="htmlText">
+    </quill-editor>
+
+</div>
+
+<div *ngIf="showIntro" [innerHTML]="getHtml()"></div>
+
+<button (click)="showHtml()">Get Text</button>
+
+<p>
+  <app-display-users #users (selection)="onUserSelection($event)"></app-display-users>
+</p>
+<p>
+  <input type="text" [(ngModel)]="userName"  >
+  <br/>
+  <input type="text" [(ngModel)]="userEmail"  >
+  <br/>
+  <input type="password" [(ngModel)]="userPassword" >
+  <br/>
+  <button (click)="createUser()">Create User.</button>
+</p>
+<p *ngIf="!token">
+  <input type="text" [(ngModel)]="loginEmail"  >
+  <br/>
+  <input type="password" [(ngModel)]="loginPassword" >
+  <br/>
+  <button (click)="loginUser()">Login User.</button>
+</p>
+<p *ngIf="token">
+  <button (click)="logoutUser()">Logout User.</button>
+</p>
+<p *ngIf="selectedUser">
+{{selectedUser.name}}
+</p>
+<p>
+  <app-display-themes #themes (selection)="onThemeSelection($event)"></app-display-themes>
+</p>
+<p *ngIf="selectedTheme">
+{{selectedTheme.name}}
+</p>
+<p>
+  <app-display-topics #topics (selection)="onTopicSelection($event)"></app-display-topics>
+</p>
+<p *ngIf="selectedTopic">
+{{selectedTopic.name}}
+</p>
+<p>
+  <input type="text" [(ngModel)]="topicName"  >
+  <br/>
+  <input type="text" [(ngModel)]="topicDescription"  >
+  <br/>
+  <input type="text" [(ngModel)]="topicTemplate" >
+  <br/>
+  <input type="checkbox" [(ngModel)]="topicPublic" /> isPublic
+  <br/>
+  <button (click)="createTopic()">Create Topic.</button>
+</p>
+<p>
+  <app-display-trials #trials [tableType]="'admin-all'" (selection)="onTrialSelection($event)"></app-display-trials>
+</p>
+<p *ngIf="selectedTrial">
+{{selectedTrial.name}}
+</p>
+<p>
+  <input type="text" [(ngModel)]="trialName"  >
+  <br/>
+  <input type="text" [(ngModel)]="trialCode"  >
+  <br/>
+  <button (click)="createTrial()">Create Trial.</button>
+</p>
+<p *ngIf="selectedTrial">
+  <app-display-participants #participants [trialId]="selectedTrial._id" (selection)="onParticipantSelection($event)"></app-display-participants>
+</p>
+<p *ngIf="selectedTrial">
+  <button (click)="joinTrial()">Join Trial by Id (add Participant Logged in User).</button>
+</p>
+<p  *ngIf="selectedParticipant">
+  <app-display-documents #documents [participantId]="selectedParticipant._id" (selection)="onDocumentSelection($event)"></app-display-documents>
+</p>
+<p *ngIf="selectedParticipant">
+  <button (click)="addDocument()">Add Document.</button>
+</p>
+<p>
+  <app-display-document></app-display-document>
+</p>
+<p *ngIf="selectedDocument">
+  <button (click)="updateDocument()">Update Document.</button>
+</p>
+<p>
+  Show Trial Statistics.
+</p>
+<p>
+  Show Participant Statistics.
+</p>

@@ -1,0 +1,14 @@
+.dialog-message {
+  width: 90%;
+  text-align: center;
+}
+.example-full-width {
+  width: 90%;
+}
+
+.chat-actions {
+  padding-bottom: 0px;
+  margin-bottom: -20px;
+  width: 100%;
+  text-align: center;
+}

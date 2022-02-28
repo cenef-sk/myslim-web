@@ -1,0 +1,73 @@
+==questionaire
+Budu rád, když mi poskytneš zpětnou vazbu k našemu setkání :normal_smile:
+
+Byly některé informace o kritickém myšlení pro tebe nové?
+* Ano[]{questionaire.something_new = true}
+* Ne[]{questionaire.something_new = false}
+
+Zaujala tě tato forma vzdělávaní?
+* Ano[]{questionaire.interesting = true}
+* Ne[]{questionaire.interesting = false}
+
+Byly texty a popisy pro tebe srozumitelné?
+* Ano[]{questionaire.understandable = true} -> q_reccomend
+* Ne[]{questionaire.understandable = false}
+
+Co nebylo srozumitelné?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.understandable_explained = answer}
+-> q_reccomend
+== q_reccomend
+
+Myslíš si, že by bylo vhodné tento online kurz někomu doporučit?
+* Ano[]{questionaire.recommendation = 'yes'}
+* Ne[]{questionaire.recommendation = 'no'}
+* Nevím[]{questionaire.recommendation = 'dontknow'}
+
+Zaujalo tě vybrané téma?
+* Ano[]{questionaire.topic_interesting = true} -> q_the_most
+* Ne[]{questionaire.topic_interesting = false}
+
+Jaké téma by pro tebe bylo zajímavější?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.topic_interesting_explained = answer}
+-> q_the_most
+
+==q_the_most
+Co bylo pro tebe nejpřínosnější? Co tě nejvíc zaujalo?
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.the_most = answer}
+
+Co si po našem online setkání uvědomuješ ohledně práce s informacemi? :think_smile:
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.perceive = answer}
+
+Chceš mi ještě něco vzkázat? :normal_smile:
+>
+{
+  "type": "text",
+  "variable": "answer"
+}
+<
+{questionaire.note = answer}
+-> final

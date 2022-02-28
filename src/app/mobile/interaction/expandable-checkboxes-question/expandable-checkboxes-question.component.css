@@ -1,0 +1,11 @@
+.expandable-checkboxes label{
+  display: block;
+}
+.answer-buttons {
+  text-align: center;
+  width: 100%;
+}
+
+.expandable-checkboxes label span {
+  margin-left: 10px;
+}

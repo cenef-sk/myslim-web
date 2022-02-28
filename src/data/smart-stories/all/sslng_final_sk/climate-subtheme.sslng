@@ -1,0 +1,17 @@
+==climate
+{name}, ukážem ti úlohu, ktorú mám riešiť. Na nej mám vraj lepšie pochopiť princíp kritického myslenia. :normal_smile:
+Máme sa venovať téme Klimatické zmeny na Zemi. Tá v posledných rokoch dosť rezonuje medzi obyvateľstvom. Poďme sa na ňu pozrieť bližšie :normal_smile:
+
+* [Pokračovať]
+
+Téma Klimatické zmeny je ale príliš všeobecná.:sad_smile: Pri podobných všeobecných témach je vhodné pozrieť sa na problém z viacerých strán a rozmeniť ho na drobné.
+Tu je niekoľko tvrdení, ktoré sa týkajú tejto témy. Skús si vybrať jednu, ktorej sa budeme venovať. :normal_smile:
+* Triedenie odpadu je dôležité.[]{hypothesis = 'Triedenie odpadu je dôležité'}
+* Krajina, v ktorej žiješ, si vedie v recyklácií v porovnaní s inými krajinami veľmi dobre.[] {hypothesis = 'Krajina, v ktorej žiješ, si vedie v recyklácií v porovnaní s inými krajinami veľmi dobre'}
+* Letecká doprava je ekologická.[] {hypothesis = 'Letecká doprava je ekologická'}
+* V krajine, ktorej žiješ, sa nenachádzajú nezákonné skládky.[] {hypothesis = 'V krajine, ktorej žiješ, sa nenachádzajú nezákonné skládky'}
+* Vypúšťanie CO2 v krajine, ktorej žiješ, spĺňa predpísané normy.[] {hypothesis = 'Vypúšťanie CO2 v krajine, ktorej žiješ, spĺňa predpísané normy'}
+* Textilný priemysel veľmi neovplyvňuje klimatickú zmenu.[] {hypothesis = 'Textilný priemysel veľmi neovplyvňuje klimatickú zmenu'}
+{intro.hypothesis = hypothesis}
+
+-> annotation-ext

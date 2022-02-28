@@ -1,0 +1,12 @@
+<app-display-trials
+[tableType]="'teacher-my'"
+[title] = "'Moje témy'"
+[noTrialTitle]="'Momentálne nemáte vytvorenú žiadnú tému.'"
+(selection)="onTrialSelection($event)"></app-display-trials>
+
+<div class="new-topic">
+  <button mat-raised-button color="primary" (click)="onNewTopic()"><mat-icon>add</mat-icon>Vytvoriť novú tému</button>
+</div>
+<!-- téma ma verejnu alebo súkromnú pracovnú skupinu
+
+Len admin moze urobit verejnu temu zatial -->

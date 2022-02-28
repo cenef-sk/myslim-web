@@ -1,0 +1,40 @@
+import { APP_HEADER_CHANGE, LOGIN_USER, LOGOUT_USER, NavigationAction } from './navigation.actions';
+import { AppState } from './app-state';
+
+export interface WorldState {
+  headerTitle: string;
+  user: any;
+}
+
+export const initialState: WorldState = {
+  headerTitle: "",
+  user: null,
+};
+
+export function navigationReducer(state = initialState, action: NavigationAction) {
+
+  switch (action.type) {
+
+    case (APP_HEADER_CHANGE):
+      return {
+        ...state,
+        headerTitle: action.payload.title
+      };
+    case (LOGIN_USER):
+      return {
+        ...state,
+        user: action.payload
+      };
+    case (LOGOUT_USER):
+      return {
+        ...state,
+        user: null
+      };
+
+    default:
+      return state;
+  }
+}
+
+export const getHeaderTitle = (state: AppState) => state.navigation.headerTitle;
+export const getUser = (state: AppState) => state.navigation.user;

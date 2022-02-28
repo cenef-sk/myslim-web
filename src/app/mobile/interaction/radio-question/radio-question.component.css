@@ -1,0 +1,11 @@
+.answer-area {
+  text-align: left;
+}
+
+.answer-button {
+  text-align: center;
+  width: 100%;
+}
+.answer-area label {
+  margin-right: 20px;
+}

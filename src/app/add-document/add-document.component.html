@@ -1,0 +1,95 @@
+<div class="dialog3">
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Link na dokument</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Vložte link na dokument k téme očkovania" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Názov</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Názov" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Zdroj</span>
+    </div>
+    <input type="text" class="form-control" placeholder="názov zdroja článku" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Dôveryhodnosť zdroja</span>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">dôveryhodný 1</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">2</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">3</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">4</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">5 nedôveryhodný</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">nepoznám</button>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Autor</span>
+    </div>
+    <input type="text" class="form-control" placeholder="kto je autorom daného článku" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Dôveryhodnosť autora</span>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">dôveryhodný 1</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">2</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">3</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">4</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">5 nedôveryhodný</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">nepoznám</button>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Dátum publikovania</span>
+    </div>
+    <input type="text" class="form-control" placeholder="kedy bol článok publikovaný" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Očkovanie članok vykresľuje </span>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">negatávne 1</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">2</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">3</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">4</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">5 pozitívne</button>
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Súhlasím s článkom </span>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">nesúhlasím 1</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">2</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">3</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">4</button>
+      <button class="btn btn-outline-secondary" type="button" id="button-addon1">5 súhlasím</button>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Poznámky k článku</span>
+    </div>
+    <textarea class="form-control" aria-label="With textarea"></textarea>
+  </div>
+
+  <div class="d2Buttons">
+    <button (click)="save()" type="button" class="btn btn-primary">Uložiť</button>
+    <button (click)="cancel()" type="button" class="btn btn-primary">Zrušiť</button>
+  </div>
+</div>

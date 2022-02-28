@@ -1,0 +1,49 @@
+<div class="activities">
+  <h3>{{'data.activities.title' | translate}}</h3>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> {{'data.activities.name' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> {{'data.activities.age' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="persons">
+      <th mat-header-cell *matHeaderCellDef> {{'data.activities.persons' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.persons}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef> {{'data.activities.duration' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="themes">
+      <th mat-header-cell *matHeaderCellDef> {{'data.activities.themes' | translate}} </th>
+      <td mat-cell *matCellDef="let element"> {{element.themes}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="download">
+      <th mat-header-cell *matHeaderCellDef> {{'data.activities.download' | translate}} </th>
+      <td mat-cell *matCellDef="let element">
+        <a [href]="'/assets/activities/' + element.file" download>{{'data.activities.downloadBtn' | translate}}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="publication">
+      <th mat-header-cell *matHeaderCellDef> {{'data.activities.publication' | translate}} </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element">{{element.publication}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

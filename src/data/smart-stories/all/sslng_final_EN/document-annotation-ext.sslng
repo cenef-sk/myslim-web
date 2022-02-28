@@ -1,0 +1,450 @@
+== annotation-ext //18 - 44 diagram
+Maybe you already have some information on this topic and maybe you have an opinion without relevant information. {name}, do you think that <b>{hypothesis}</b>?
+* Totally agree[] {opinion = 1}
+* Inclined to agree[] {opinion = 2}
+* Inclined to disagree[] {opinion = 3}
+* Totally disagree[] {opinion = 4}
+* I don’t know – I don’t have information[] {opinion = 5} -> otazka22
+{intro.opinion = opinion}
+
+They say that a part of critical thinking is also to know how to convey information, reason and argument.
+Try using explanation and reasoning to convey why you have such an opinion? :normal_smile:
+// „text“ (definovať min. a max. počet znakov 20 - 300)
+>
+{
+  "type": "text",
+  "variable": "opinion_explanation",
+  "button": "Continue"
+}
+<
+{intro.opinion_explanation = opinion_explanation}
+-> otazka22
+== otazka22
+{name}, let’s go back to the stament that <b>{hypothesis}</b>. Where would you start looking for information on this topic? :think_smile:
+>
+{
+  "type": "free-text-check",
+  "variable": "tools",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Google",
+      "prompt": "text",
+      "placeholder": "What words will you search?"
+    },
+    {
+      "answer": "YouTube",
+      "prompt": "text",
+      "placeholder": "What words will you search?"
+    },
+    {
+      "answer": "Instagram",
+      "prompt": "text",
+      "placeholder": "What words will you search?"
+    },
+    {
+      "answer": "Facebook",
+      "prompt": "text",
+      "placeholder": "What words will you search?"
+    },
+    {
+      "answer": "News sites",
+      "prompt": "text",
+      "placeholder": "Enter the names of websites."
+    },
+    {
+      "answer": "TikTok",
+      "prompt": "text",
+      "placeholder": "What words will you search?"
+    },
+    {
+      "answer": "Newspapers, Magazines",
+      "prompt": "text",
+      "placeholder": "Tell me which."
+    },
+    {
+      "answer": "Scientific publication",
+      "prompt": "text",
+      "placeholder": "Enter name of publication."
+    },
+    {
+      "answer": "A Scientist",
+      "prompt": "text",
+      "placeholder": "What is their research topic?"
+    },
+    {
+      "answer": "A friend",
+      "prompt": "text",
+      "placeholder": "Tell me why."
+    },
+    {
+      "answer": "A school teacher",
+      "prompt": "text",
+      "placeholder": "Tell me why."
+    },
+    {
+      "answer": "A parent or somebody in the family",
+      "prompt": "text",
+      "placeholder": "Tell me why."
+    },
+    {
+      "answer": "Other",
+      "prompt": "text",
+      "placeholder": "State other sources."
+    }
+  ],
+  "button": "Next"
+}
+<
+{intro.tools = tools}
+Great, {name}:normal_smile: It’s important to think about where to find information and to check them from multiple (ideally trustworthy) sources and scientific materials.
+Necessary information can be found not only on internet, but also from people we know.
+* [Next]
+-> new-document
+
+== new-document
+
+And now comes a part where your brain starts to work on full gears. :laugh_smile:
+Search for a post on internet related to topic we are dealing with: <b>{hypothesis}</b>.
+We will work with this post, so read it carefully. Send me a link to the post you´ve chosen that relates to the topic. :think_smile:
+// text, (nesmie byť prázdne, začína na www alebo http  a končí .text)
+
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.url = answer}
+Great job {name}!
+Thank you for sharing. I believe that you have the post researched well. :normal_smile: What stance did the autor take towards the statement <b>{hypothesis}</b> ?
+
+* Author completely agrees with the statement.[] {hypothesis}{document.author_opinion = 5}
+* Author rather agrees with the statement.[] {hypothesis}{document.author_opinion = 4}
+* Author is neutral towards the topic.[] {hypothesis}{document.author_opinion = 3}
+* Author rather disagrees with the statement.[] {hypothesis}{document.author_opinion = 2}
+* Author totally disagrees with the statement.[] {hypothesis}{document.author_opinion = 1}
+
+{name} and what do you think about the information and the post you´ve read from the author? :think_smile:
+
+* I totally agree with the author.[] {document.agree_with_author = 5} //hack space? //TODO -NUMBER does not work!!!
+* I am more likely to agree with the author.[] {document.agree_with_author = 4}
+* I am more likely to disagree with the author.[] {document.agree_with_author = 2}
+* I totally disagree with the author.[] {document.agree_with_author = 1}
+
+And you know what? :think_smile:
+They say it is important to ask questions.
+When assessing the trustworthyness or rate of manipulation of the post, it is recommended to answer some questions.
+We can use 5 key questions of media literacy as a tool to help us decide: <b>Who? What? How? To whom? Why??</b> :normal_smile:
+
+* [Next]
+
+Let´s take a look at the first of the key questions of media literacy. WHO? :normal_smile:
+Who is the author? Write down his name.
+
+//Text (nie prázdna hodnota) (napíš „neviem“ v prípade, že sa ti meno autora nepodarilo zistiť)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.author = answer}
+Now, let´s take a closer look at the author. :normal_smile:
+Try to find a profile of the author and his other work. Can you find more about them?
+
+* I´ve found his other work, but the author is not usually involved in this topic.[]{document.author_additional = 1}
+* Author is involved in the same topic for a longer time.[]{document.author_additional = 2}
+* I can´t find the author online.[]{document.author_additional = 3}
+* I can find the author, but there is not enough information about them.[]{document.author_additional = 4}
+
+The source which author uses to publish and share the information relates to the author.
+Tell me the source of the post. (website, name of the newspaper).
+
+//Text (nie prázdna hodnota alebo http... www.text.text)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.source = answer}
+
+So that you won´t think it´s too little.. :think_smile:  <>
+Who is behind the web page, where the post is published?  (State the name of e.g. person, political party, firm, group of specialists on the topic, it´s not related, etc.)
+//Text (nie prázdna hodnota)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.source_owner = answer}
+
+You´ve research the page. :normal_smile: What is the objective of the page?
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Academic information"
+    },
+    {
+      "answer": "Fun"
+    },
+    {
+      "answer": "Blog"
+    },
+    {
+      "answer": "Personal marketing"
+    },
+    {
+      "answer": "News"
+    },
+    {
+      "answer": "Marketing (advertisement)"
+    },
+    {
+      "answer": "Discussion forum"
+    },
+    {
+      "answer": "Social network"
+    },
+    {
+      "answer": "Causing panic"
+    },
+    {
+      "answer": "Other",
+      "prompt": "text"
+    }
+  ],
+  "button": "Next"
+}
+<
+{document.main_aim = answer}
+
+Do you think this source of information is trustworthy? Does it publish truthful posts that are representing reality?
+
+// (Posuvník na určovanie škály, alebo škálovacie hodnoty 1 -10)  Dôveryhodný, nedôveryhodný
+//TODO
+>
+{
+  "type": "scale",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{document.credibility = answer}
+
+Look how many information we found to answer the question WHO.
+
+{name}, let´s look at the second question – WHAT? WHAT is the content of the post?
+Think about the question :think_smile: <>
+What is the goal of the post?
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "To inform"
+    },
+    {
+      "answer": "To make fun"
+    },
+    {
+      "answer": "To express an opinion"
+    },
+    {
+      "answer": "To spread fear"
+    },
+    {
+      "answer": "To cause panic"
+    },
+    {
+      "answer": "To advertise (an item, service, person, political party)"
+    },
+    {
+      "answer": "To discuss"
+    },
+    {
+      "answer": "To enlighten"
+    },
+    {
+      "answer": "Other",
+      "prompt": "text"
+    }
+  ],
+  "button": "Next"
+}
+<
+{document.content_aim = answer}
+I have noticed a couple of interesting thinkgs in the post :think_smile:
+Can you find them as well?
+Where from did the author take the information when writing the post? You can state the name, webpage, company, article, organization, etc.
+//“Text” (keď klikne na +, pridá sa ďalšie textové pole)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "recommendation": "Note: think about resources… Is the author trying to show the whole issue, or is he promoting only his position, or did they take some information out of context? It is necessary to verify the source again, the author.",
+  "button": "Next"
+}
+<
+{document.references = answer}
+
+{name}, we still have work to do :normal_smile:
+Each piece of information can be provided in several ways.<>
+Let's go to the next key question HOW? HOW does the author convey the information?
+//Checkboxy (okruhy oblasti):
+
+>
+{
+  "type": "expand-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Pictures",
+      "recommendation": "What to think about: current, out of date, photography, illustration, infographics, related to the topic, unrelated to the topic."
+    },
+    {
+      "answer": "Videos",
+      "recommendation": "What to think about: current, out of date, animation, reality, related to the topic, unrelated to the topic, body language."
+    },
+    {
+      "answer": "Statistics",
+      "recommendation": "Data and statistical surveys are often misrepresented. They are the most common source of errors with a great impact on the lay but also on the professional public."
+    },
+    {
+      "answer": "Clickbaits",
+      "recommendation": "Clickbait is a type of text that primarily aims to entice a user to click on a particular link, article title, or video."
+    },
+    {
+      "answer": "Text and spoken word",
+      "recommendation": "What to think about: emotionally colored language, vulgar language, unprofessionalism, playing emotions, clickbaits, argumentative fouls."
+    }
+  ],
+  "button": "Next"
+}
+<
+{document.tools = answer}
+We are already behind half of the key questions :normal_smile:
+Another of the questions points out, WHO is the target of this post? WHO is the target group? (e.g. general public, young people, seniors, ...) :think_smile:
+//Text (nie prázdna hodnota)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "recommendation": "Recommendation: the comments and responses below the post can help you find the answer to this question. You will notice how people react to this post and what interested them.",
+  "button": "Next"
+}
+<
+{document.to_who = answer}
+
+Is this post targeted to you?
+* Yes[]{document.me = 1}
+* Not[]{document.me = 2}
+* I do not know[]{document.me = 3}
+
+And here is the last of the questions mentioned :normal_smile:
+WHY was this post created?
+Think about what the article is about and what the context is.
+>
+{
+  "type": "free-text-check",
+  "variable": "answer",
+  "required": true,
+  "answers": [
+    {
+      "answer": "Legislation (eg changes in laws are planned)"
+    },
+    {
+      "answer": "Informing (eg to introduce the reader to the issue)"
+    },
+    {
+      "answer": "Promotion (eg a new product is launched)"
+    },
+    {
+      "answer": "Increase page traffic (e.g. clickbaits)"
+    },
+    {
+      "answer": "Other (specify)",
+      "prompt": "text"
+    }
+  ],
+  "button": "Next"
+}
+<
+{document.why = answer}
+
+{documents[doc_num] = document}
+//TODO empty document, currently outside of engine
+{doc_num = doc_num + 1}
+Now we have only answered the key questions. Of course, with each post you can look for answers to other questions. :normal_smile:
+The more information and documents we have, the better we can decide and take a stand on the situation.
+* {min_doc_num > doc_num}-> annotation-simple
+Want to find another contribution to the claim we're addressing <b>{hypothesis}</b>? :think_smile:
+* Yes, I want to add another post -> annotation-simple //(skoč na 24 (pri ďalšom cykle nebudú sprievodné informácie, len pomocné bubliny)),
+* No, I have enough information on the topic
+-> opinion-check
+
+== opinion-check
+What is your view now on the claim that <b>{hypothesis}</b>? :think_smile:
+* I totally agree[]{new_opinion = 1}
+* I rather agree[]{new_opinion = 2}
+* I rather disagree[]{new_opinion = 3}
+* I completely disagree[]{new_opinion = 4}
+* I can't comment[]{new_opinion = 5} -> opinion-unknown
+{intro.new_opinion = new_opinion}
+{hack = 2} // toto je hack
+// differenet branches
+
+* {opinion == new_opinion}-> opinion-the-same
+* {opinion != new_opinion}-> opinion-different
+
+== opinion-different
+//(ak je odlišná odp. 20 a 40)
+Your position on claiming {hypothesis} has changed. What contributed to the change in your opinion?
+// Text  (nie prázdna hodnota, definovať min a max počet znakov 20 - 300)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{intro.change_explained = answer}
+-> conclusion
+
+== opinion-the-same
+//(ak je rovnaká odp. 20 a 40)
+Your position on the claim <b>{hypothesis}</b> has not changed. What confirmed you in this attitude of yours?
+// Text (nie prázdna hodnota, definovať min a max počet znakov 20 - 300)
+>
+{
+  "type": "text",
+  "variable": "answer",
+  "button": "Next"
+}
+<
+{intro.equal_explained = answer}
+-> conclusion
+
+== opinion-unknown
+Your position is indecisive. It may be worth considering another post that complements your knowledge on <b>{hypothesis}</b>. And then maybe you will take a different approach to the topic.
+Want to add another post? :think_smile:
+* Yes -> annotation-simple
+* Not
+
+It's a shame you're not considering finding out more. :sad_smile: Just enough information and its analysis is a basic prerequisite for critical thinking.
+Do you want to try to add another post?
+* Yes -> annotation-simple
+* Not -> conclusion

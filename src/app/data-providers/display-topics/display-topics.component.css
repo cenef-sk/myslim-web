@@ -1,0 +1,16 @@
+
+.display-topics {
+  display: block;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+}
+
+.table-topics {
+  width: 100%;
+  text-align: left;
+}
+
+.topics-title {
+  font-size: 20px;
+}
