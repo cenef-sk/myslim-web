@@ -1,30 +1,22 @@
-# Myslim
+# myslim-web
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
+This is myslim-web installation guide.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Install node for your platform (tested under versions 9.4.0 and 8.9.4)
+https://nodejs.org/en/download/
 
-## Code scaffolding
+2. For better management of different versions of node installed on your computer use:
+  * windows: https://github.com/coreybutler/nvm-windows
+  * linux/macos: https://github.com/creationix/nvm
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Install angular cli to your system (tested under version 1.7.1)
+`npm install -g @angular/cli`
 
-## Build
+4. Clone or fork source code from our git repository
+https://github.com/cenef-sk/myslim-web
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+5. Run `npm install`
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-nvm use v12.19.0
-ng serve
+6. To start web application connected to REST API (https://github.com/cenef-sk/myslim-core) run command `ng serve`
