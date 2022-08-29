@@ -1,11 +1,11 @@
 <app-display-trials
 [tableType]="'teacher-my'"
-[title] = "'Moje témy'"
-[noTrialTitle]="'Momentálne nemáte vytvorenú žiadnú tému.'"
+[title] = "'data.trials.myTopics' | translate"
+[noTrialTitle]="'data.trials.noTopic' | translate"
 (selection)="onTrialSelection($event)"></app-display-trials>
 
 <div class="new-topic">
-  <button mat-raised-button color="primary" (click)="onNewTopic()"><mat-icon>add</mat-icon>Vytvoriť novú tému</button>
+  <button mat-raised-button color="primary" (click)="onNewTopic()"><mat-icon>add</mat-icon>{{'data.trials.newTopic' | translate}}</button>
 </div>
 <!-- téma ma verejnu alebo súkromnú pracovnú skupinu
 

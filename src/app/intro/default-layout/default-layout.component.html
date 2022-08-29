@@ -1,7 +1,7 @@
 <mat-toolbar color="primary"  class="header mat-elevation-z10">
   <span class="clickable" (click)="home()">{{ 'CriticalThinking' | translate }}</span>
   <span class="spacer"></span>
-  <button mat-button [matMenuTriggerFor]="menu">{{language}}</button>
+  <button *ngIf="sharedService.lngSelector" mat-button [matMenuTriggerFor]="menu">{{language}}</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item
     *ngFor="let language of languages"

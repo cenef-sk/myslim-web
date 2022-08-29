@@ -1,6 +1,6 @@
 <div *ngIf="participant" class="summary-description-wrapper">
   <div class="summary-description">
-    <h2>{{(participant && participant.data && participant.data.intro && participant.data.intro.hypothesis)?participant.data.intro.hypothesis:""}}</h2>
+    <h2>{{(participant && participant.data && participant.data.intro && participant.data.intro.hypothesis)?participant.data.intro.hypothesis:participant.topic.hypothesis}}</h2>
   </div>
 </div>
 
@@ -9,27 +9,27 @@
                        (closed)="questionaireOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Úvod do kritického myslenia [{{ctTime}}]
+        {{'doc.intro.title' | translate}} [{{ctTime}}]
       </mat-panel-title>
       <!-- <mat-panel-description>
         {{questionaireOpenState ? '' : 'questionaireOpenState'}}
       </mat-panel-description> -->
     </mat-expansion-panel-header>
     <div class="answers">
-    <p>Ktoré z tvrdení o je podľa teba správne? <b>{{i1(intro.km_definition)}}</b></p>
-    <p>Aké pocity vyvoláva u ostatných ľudí obrázok? <b>{{i2(intro.question_emotions)}}</b></p>
+    <p>{{'doc.intro.statements' | translate}} <b>{{i1(intro.km_definition)}}</b></p>
+    <p>{{'doc.intro.emotions' | translate}} <b>{{i2(intro.question_emotions)}}</b></p>
     </div>
   </mat-expansion-panel>
 
 </div>
 
 <app-display-documents
-[noDocumentTitle]="'Momentálne nemáte žiadny dokument.'"
+[noDocumentTitle]="'doc.nodoc' | translate"
 [title]="Ni4"
 [participantId]="participantId"></app-display-documents >
   <div *ngIf="!isTeacher" class="new-document">
-    <button mat-raised-button color="primary" (click)="onNewDocument()"><mat-icon>add</mat-icon>Vytvoriť nový dokument</button>
-    <button mat-raised-button color="primary" (click)="onExit()"><mat-icon>close</mat-icon>Ukončiť</button>
+    <button mat-raised-button color="primary" (click)="onNewDocument()"><mat-icon>add</mat-icon>{{'doc.new' | translate}}</button>
+    <button mat-raised-button color="primary" (click)="onExit()"><mat-icon>close</mat-icon>{{'doc.finish' | translate}}</button>
   </div>
 
   <div *ngIf="isTeacher && questionaire != null" class="new-document">
@@ -37,23 +37,23 @@
                          (closed)="questionaireOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Dotazník [{{qTime}}]
+          {{'doc.questionaire.title' | translate}} [{{qTime}}]
         </mat-panel-title>
         <!-- <mat-panel-description>
           {{questionaireOpenState ? '' : 'questionaireOpenState'}}
         </mat-panel-description> -->
       </mat-expansion-panel-header>
       <div class="answers">
-      <p>Boli niektoré informácie o kritickom myslení pre teba nové? <b>{{t(questionaire.something_new)}}</b></p>
-      <p>Bola takáto forma vzdelávania pre teba zaujímavá? <b>{{t(questionaire.interesting)}}</b></p>
-      <p>Boli texty a popisy pre teba zrozumiteľne? <b>{{t(questionaire.understandable)}}</b></p>
-      <p>Čo nebolo zrozumiteľne? Ktoré texty navrhuješ zmeniť? <b>{{s(questionaire.understandable_explained)}}</b></p>
-      <p>Myslíš si, že by bolo vhodné tento online kurz niekomu odporučiť? <b>{{t(questionaire.recommendation)}}</b></p>
-      <p>Bola vybraná téma pre teba zaujímavá? <b>{{t(questionaire.topic_interesting)}}</b></p>
-      <p>Aká téma by bola podľa teba zaujímavejšia pre väčšinu mladých ľudí? <b>{{s(questionaire.topic_interesting_explained)}}</b></p>
-      <p>Čo bolo pre teba najprínosnejšie? Čo ťa najviac zaujalo? <b>{{s(questionaire.the_most)}}</b></p>
-      <p>Čo si si po našom rozhovore uvedomil/a ohľadom práce s informáciami? <b>{{s(questionaire.perceive)}}</b></p>
-      <p>Chceš mi ešte niečo odkázať. <b>{{s(questionaire.note)}}</b></p>
+      <p>{{'doc.questionaire.new' | translate}} <b>{{t(questionaire.something_new)}}</b></p>
+      <p>{{'doc.questionaire.interesting' | translate}} <b>{{t(questionaire.interesting)}}</b></p>
+      <p>{{'doc.questionaire.understandable' | translate}} <b>{{t(questionaire.understandable)}}</b></p>
+      <p>{{'doc.questionaire.understandable_explained' | translate}} <b>{{s(questionaire.understandable_explained)}}</b></p>
+      <p>{{'doc.questionaire.recommendation' | translate}} <b>{{t(questionaire.recommendation)}}</b></p>
+      <p>{{'doc.questionaire.topic_interesting' | translate}} <b>{{t(questionaire.topic_interesting)}}</b></p>
+      <p>{{'doc.questionaire.topic_interesting_explained' | translate}} <b>{{s(questionaire.topic_interesting_explained)}}</b></p>
+      <p>{{'doc.questionaire.most' | translate}} <b>{{s(questionaire.the_most)}}</b></p>
+      <p>{{'doc.questionaire.perceive' | translate}} <b>{{s(questionaire.perceive)}}</b></p>
+      <p>{{'doc.questionaire.note' | translate}} <b>{{s(questionaire.note)}}</b></p>
       </div>
     </mat-expansion-panel>
 
@@ -67,5 +67,5 @@
   </div> -->
 
   <div *ngIf="isTeacher" class="new-document">
-    <button mat-raised-button color="primary" (click)="exitTeacher()"><mat-icon>close</mat-icon>Späť</button>
+    <button mat-raised-button color="primary" (click)="exitTeacher()"><mat-icon>close</mat-icon>{{'doc.back' | translate}}</button>
   </div>

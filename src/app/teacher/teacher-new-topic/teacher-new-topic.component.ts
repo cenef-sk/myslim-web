@@ -7,6 +7,7 @@ import { MyslimService } from 'src/app/myslim.service';
 import { ChatClimaticSettingsComponent } from 'src/app/templates/chat/chat-climatic-settings/chat-climatic-settings.component';
 import { ChatSettingsComponent } from 'src/app/templates/chat/chat-settings/chat-settings.component';
 import { FormSettingsComponent } from 'src/app/templates/form/form-settings/form-settings.component';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-teacher-new-topic',
@@ -36,7 +37,8 @@ export class TeacherNewTopicComponent implements OnInit {
     constructor(
       private globals: Globals,
       private myslimService: MyslimService,
-      private router: Router
+      private router: Router,
+      private translate: TranslateService,
     ) { }
 
     ngOnInit() {
@@ -66,7 +68,7 @@ export class TeacherNewTopicComponent implements OnInit {
           serviceFnc = this.myslimService.createTopic(
             this.nameFormControl.value,
             this.templateFormControl.value,
-            "Viacero otázok o klimatických zmenách.",
+            this.translate.instant('teacher.climatic'),
             this.showVideo.value,
             this.showIntro.value,
             this.showQuestionaire.value,

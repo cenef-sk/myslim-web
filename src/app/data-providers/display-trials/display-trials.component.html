@@ -87,7 +87,7 @@
         <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
         (click)="onShowStats(element)">
           <mat-icon>bar_chart</mat-icon>
-          výsledky
+          {{'data.trials.results' | translate}}
         </button>
       </td>
     </ng-container>
@@ -108,7 +108,7 @@
 
         <div class="share">
                 <a class="click" (click)="share(element)">
-                  <mat-icon>facebook</mat-icon> <span>Share</span>
+                  <mat-icon>facebook</mat-icon> <span>{{'data.trials.shareBtn' | translate}}</span>
                 </a>
             </div>
         <!-- <button class="share" (click)="share()">
@@ -129,12 +129,12 @@
 
     <!-- Test Column -->
     <ng-container matColumnDef="test">
-      <th mat-header-cell *matHeaderCellDef> Otestuj </th>
+      <th mat-header-cell *matHeaderCellDef> {{'data.trials.test' | translate}} </th>
       <td mat-cell *matCellDef="let element" style="text-align: center;">
         <button mat-stroked-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
         (click)="onTest(element)">
           <mat-icon>quiz</mat-icon>
-          test
+          {{'data.trials.testBtn' | translate}}
         </button>
       </td>
     </ng-container>

@@ -1,28 +1,28 @@
 <mat-card  class="example-card">
   <mat-card-header>
-    <mat-card-title>Vytvoriť novú tému</mat-card-title>
+    <mat-card-title>{{'teacher.topic.title' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form class="example-form" [formGroup]="showClassGrp" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill" class="example-full-width"
       >
-        <mat-label>Vytvoriť tému na základe šablóny</mat-label>
+        <mat-label>{{'teacher.topic.template' | translate}}</mat-label>
         <mat-select [formControl]="templateFormControl" required>
-          <mat-option value="chat-climatic">Chat - Klimatické zmeny</mat-option>
-          <mat-option value="chat-generic">Chat - Vlastná téma</mat-option>
-          <mat-option value="form-generic">Formulár - Vlastná téma</mat-option>
+          <mat-option value="chat-climatic">{{'teacher.topic.t1' | translate}}</mat-option>
+          <mat-option value="chat-generic">{{'teacher.topic.t2' | translate}}</mat-option>
+          <mat-option value="form-generic">{{'teacher.topic.t3' | translate}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <mat-label>Názov témy</mat-label>
+        <mat-label>{{'teacher.topic.name' | translate}}</mat-label>
         <input matInput [formControl]="nameFormControl" autoComplete='off'>
         <mat-error *ngIf="nameFormControl.hasError('required')">
-          Názov nemôže byť prázdny
+          {{'teacher.topic.hint1' | translate}}
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" class="example-full-width"
       >
-        <mat-label>Jazyk témy</mat-label>
+        <mat-label>{{'teacher.topic.lng' | translate}}</mat-label>
         <mat-select [formControl]="lngFormControl" required>
           <mat-option value="sk">Slovenčina</mat-option>
           <mat-option value="cz">Čeština</mat-option>
@@ -31,10 +31,10 @@
       </mat-form-field>
       <ng-container *ngIf="isForm() || isGeneric()">
         <mat-form-field class="example-full-width">
-          <mat-label>Formulujte hypotézu, ktorú chcete overiť.</mat-label>
-          <input matInput [formControl]="hypothesisFormControl" placeholder="napr. Pomocou tabletiek sa dá schudnuť.">
+          <mat-label>{{'teacher.topic.hypothesis' | translate}}</mat-label>
+          <input autocomplete="off" matInput [formControl]="hypothesisFormControl" [placeholder]="'teacher.topic.ph2' | translate">
           <mat-error *ngIf="hypothesisFormControl.hasError('required')">
-            Hypotéza nemôže byť prázdna
+            {{'teacher.topic.hint2' | translate}}
           </mat-error>
         </mat-form-field>
       </ng-container>
@@ -47,18 +47,18 @@
       <app-form-settings *ngIf="templateFormControl.value == 'form-generic'"
       (answer) = "onFormGenericData($event)"
       ></app-form-settings> -->
-      <mat-checkbox *ngIf="isAdmin()" id="publicTrialControl" [formControl]="publicTrialControl" class="example-margin">Verejná pracovná skupina</mat-checkbox>
+      <mat-checkbox *ngIf="isAdmin()" id="publicTrialControl" [formControl]="publicTrialControl" class="example-margin">{{'teacher.topic.public' | translate}}</mat-checkbox>
       <br/>
       <ng-container *ngIf="isClimate() || isGeneric()">
-        <mat-checkbox [formControl]="showVideo" class="example-margin">Použiť motivačné video</mat-checkbox>
+        <mat-checkbox [formControl]="showVideo" class="example-margin">{{'teacher.topic.video' | translate}}</mat-checkbox>
         <br/>
-        <mat-checkbox [formControl]="showIntro" class="example-margin">Prejsť úvod do kritického myslenia</mat-checkbox>
+        <mat-checkbox [formControl]="showIntro" class="example-margin">{{'teacher.topic.intro' | translate}}</mat-checkbox>
         <br/>
-        <mat-checkbox [formControl]="showQuestionaire" class="example-margin">Vložiť na koniec dotaznik</mat-checkbox>
+        <mat-checkbox [formControl]="showQuestionaire" class="example-margin">{{'teacher.topic.questionaire' | translate}}</mat-checkbox>
         <br/>
       </ng-container>
       <ng-container *ngIf="isClimate() || isGeneric()">
-        <mat-label>Minimálny počet vložených dokumentov pre respondenta:</mat-label>
+        <mat-label>{{'teacher.topic.min' | translate}}</mat-label>
         <mat-form-field appearance="fill">
           <mat-select [formControl]="minDocNum">
             <mat-option value="1">1</mat-option>
@@ -76,15 +76,15 @@
     </form>
   </mat-card-content>
   <ng-container *ngIf="isClimate() || isGeneric()">
-  <mat-label>Odhadovaná dĺžka trvania pre respondenta <b>{{5 + 10*minDocNum.value + 5*showIntro.value+ 2*showQuestionaire.value + 3*showVideo.value}} minút</b></mat-label>
+  <mat-label>{{'teacher.topic.time' | translate}} <b>{{5 + 10*minDocNum.value + 5*showIntro.value+ 2*showQuestionaire.value + 3*showVideo.value}} {{'teacher.topic.minutes' | translate}}</b></mat-label>
   <br/>
   <br/>
   </ng-container>
-  <mat-label>Kliknutím tlačidla vytvoriť vytvoríte novú tému a k nej pracovnú skupinu prístupnú pod kódom <b>{{code}}</b></mat-label>
+  <mat-label>{{'teacher.topic.code' | translate}} <b>{{code}}</b></mat-label>
   <mat-card-actions class="action">
     <button mat-button
-    (click)="create()">Vytvoriť</button>
+    (click)="create()">{{'teacher.topic.create' | translate}}</button>
     <button mat-button
-    (click)="cancel()">Zrušiť</button>
+    (click)="cancel()">{{'teacher.topic.cancel' | translate}}</button>
   </mat-card-actions>
 </mat-card>

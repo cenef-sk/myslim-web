@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Globals } from 'src/app/globals';
 import { MyslimService } from 'src/app/myslim.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SharedService } from "src/app/shared.service";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-document-annotation',
@@ -18,8 +20,11 @@ export class DocumentAnnotationComponent implements OnInit {
     private globals: Globals,
     private myslimService: MyslimService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+    private ss: SharedService,
+    private translate: TranslateService
+  ) {
+  }
 
   doNothing(){
 
@@ -104,44 +109,44 @@ export class DocumentAnnotationComponent implements OnInit {
     this.next();
   }
   ucel = {
-  "type": "free-text-check",
-  "variable": "answer",
-  "required": true,
-  "answers": [
-    {
-      "answer": "Odborné informácie"
-    },
-    {
-      "answer": "zábava"
-    },
-    {
-      "answer": "blog"
-    },
-    {
-      "answer": "osobné prezentovanie"
-    },
-    {
-      "answer": "spravodajstvo"
-    },
-    {
-      "answer": "Propagácia (reklama)"
-    },
-    {
-      "answer": "diskusné fórum"
-    },
-    {
-      "answer": "sociálna sieť"
-    },
-    {
-      "answer": "zastrašovanie"
-    },
-    {
-      "answer": "iné",
-      "prompt": "text"
+      "type": "free-text-check",
+      "variable": "answer",
+      "required": true,
+      "answers": [
+        {
+          "answer": this.ss.getA('ucel',0)
+        },
+        {
+          "answer": this.ss.getA('ucel',1)
+        },
+        {
+          "answer": this.ss.getA('ucel',2)
+        },
+        {
+          "answer": this.ss.getA('ucel',3)
+        },
+        {
+          "answer": this.ss.getA('ucel',4)
+        },
+        {
+          "answer": this.ss.getA('ucel',5)
+        },
+        {
+          "answer": this.ss.getA('ucel',6)
+        },
+        {
+          "answer": this.ss.getA('ucel',7)
+        },
+        {
+          "answer": this.ss.getA('ucel',8)
+        },
+        {
+          "answer": this.ss.getA('ucel',9),
+          "prompt": "text"
+        }
+      ],
+      "button": this.ss.getA('next')
     }
-  ],
-  "button": "Ďalej"
-}
 onAnswer7(option){
   this.document['credibility'] = option[0];
   console.log(this.document)
@@ -152,7 +157,7 @@ dovera = {
   "type": "text",
   "variable": "answer",
   "type2": "scale10",
-  "button": "Ďalej"
+  "button": this.ss.getA('next')
 }
 
 onAnswer8(option){
@@ -167,35 +172,35 @@ ciel = {
   "required": true,
   "answers": [
     {
-      "answer": "Informovať"
+      "answer": this.ss.getA('ciel',0)
     },
     {
-      "answer": "Pobaviť"
+      "answer": this.ss.getA('ciel',1)
     },
     {
-      "answer": "Vyjadriť názor"
+      "answer": this.ss.getA('ciel',2)
     },
     {
-      "answer": "Zastrašiť"
+      "answer": this.ss.getA('ciel',3)
     },
     {
-      "answer": "Vyvolať rozruch"
+      "answer": this.ss.getA('ciel',4)
     },
     {
-      "answer": "Propagovať (výrobok, službu, osobnosť, polit. stranu)"
+      "answer": this.ss.getA('ciel',5)
     },
     {
-      "answer": "Diskutovať"
+      "answer": this.ss.getA('ciel',6)
     },
     {
-      "answer": "Osveta"
+      "answer": this.ss.getA('ciel',7)
     },
     {
-      "answer": "Iné",
+      "answer": this.ss.getA('ciel',8),
       "prompt": "text"
     }
   ],
-  "button": "Ďalej"
+  "button": this.ss.getA('next')
 }
 
 onAnswer9(option){
@@ -210,27 +215,27 @@ zaujat = {
   "required": true,
   "answers": [
     {
-      "answer": "obrázky",
-      "recommendation": "Odporúčanie čo sledovať - nad čím sa zamyslieť:(aktuálne, neaktuálne, fotografia, ilustrácia, infografika, súvisiaci s témou, nesúvisiaci s témou)"
+      "answer": this.ss.getA('zaujat',0),
+      "recommendation": this.ss.getA('zaujatRcmd',0)
     },
     {
-      "answer": "videá",
-      "recommendation": "Odporúčanie čo sledovať  - nad čím sa zamyslieť:(aktuálne, neaktuálne animácia, realita, súvisiace s témou, nesúvisiace s témou s témou, reč tela)"
+      "answer": this.ss.getA('zaujat',1),
+      "recommendation": this.ss.getA('zaujatRcmd',1)
     },
     {
-      "answer": "štatistiky",
-      "recommendation": "Často sa nesprávne prezentujú dáta a štatistické výskumy. Bývajú najčastejším zdrojom chýb s veľkým vplyvom na laickú ale i na odbornú verejnosť."
+      "answer": this.ss.getA('zaujat',2),
+      "recommendation": this.ss.getA('zaujatRcmd',2)
     },
     {
-      "answer": "clickbajty",
-      "recommendation": "Clickbait je druh textu, ktorý má v prvom rade za cieľ nalákať užívateľa na kliknutie na určitý odkaz, titulok článku či k prehraniu videa."
+      "answer": this.ss.getA('zaujat',3),
+      "recommendation": this.ss.getA('zaujatRcmd',3)
     },
     {
-      "answer": "text a hovorené slovo",
-      "recommendation": "Odporúčanie čo sledovať  - nad čím sa zamyslieť: citove zafarbený jazyk, vulgárny jazyk, neodbornosť, hranie na emócie, clickbaity, argumentačné fauly (odkaz v bubline kde sú informácie k téme)"
+      "answer": this.ss.getA('zaujat',4),
+      "recommendation": this.ss.getA('zaujatRcmd',4)
     }
   ],
-  "button": "Ďalej"
+  "button": this.ss.getA('next')
 }
 onAnswer10(option){
   this.document['me'] = 1 + option;
@@ -252,23 +257,23 @@ preco = {
   "required": true,
   "answers": [
     {
-      "answer": "legislatíva (plánujú sa zmeny v zákonoch)"
+      "answer": this.ss.getA('preco',0)
     },
     {
-      "answer": "informovanie (uviesť čitateľa do problematiky)"
+      "answer": this.ss.getA('preco',1)
     },
     {
-      "answer": "propagácia (uvádza sa nový produkt na trh)"
+      "answer": this.ss.getA('preco',2)
     },
     {
-      "answer": "zvýšenie návštevnosti stránky (clickbajty)"
+      "answer": this.ss.getA('preco',3)
     },
     {
-      "answer": "Iné (uviesť)",
+      "answer": this.ss.getA('preco',4),
       "prompt": "text"
     }
   ],
-  "button": "Ďalej"
+  "button": this.ss.getA('next')
 }
 
 }

@@ -1,10 +1,10 @@
 <mat-card *ngIf="state==0"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Dokument k téme "{{participant.topic.hypothesis}}"</mat-card-title>
+    <mat-card-title>{{'doc.form.urlTitle' | translate}} "{{participant.topic.hypothesis}}"</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <mat-form-field class="example-full-width">
-      <mat-label>URL adresa článku</mat-label>
+      <mat-label>{{'doc.form.urlInput' | translate}}</mat-label>
       <input matInput type="text" [(ngModel)]="document.url" autocomplete="off">
       <button mat-button *ngIf="document.url" matSuffix mat-icon-button aria-label="Clear" (click)="document.url=''">
         <mat-icon>close</mat-icon>
@@ -12,23 +12,17 @@
     </mat-form-field>
     <button mat-button
     *ngIf="shouldContinue && document.url && document.url.length > 2"
-    (click)="next()">Ďalej</button>
+    (click)="next()">{{ss.getA('next')}}</button>
   </mat-card-actions>
 </mat-card>
 
 <mat-card *ngIf="state==1"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Názor autora</mat-card-title>
+    <mat-card-title>{{'annotation.authorOpinion' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-button-question
-      [question] = "[
-        'Autor úplne súhlasí s tvrdením',
-        'Autor skôr súhlasí s tvrdením',
-        'Autor zaujal neutralny postoj k téme',
-        'Autor skôr nesúhlasí s tvrdením',
-        'Autor úplne nesúhlasí s tvrdením'
-        ]"
+      [question] = "ss.getAll('authorsOpinion')"
       (answer) = "onAnswer2($event)"
     ></app-button-question>
   </mat-card-actions>
@@ -36,16 +30,11 @@
 
 <mat-card *ngIf="state==2"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Moj nazor</mat-card-title>
+    <mat-card-title>{{'annotation.myOpinion' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-button-question
-      [question] = "[
-        'Úplne súhlasím s autorom',
-        'Skôr súhlasím s autorom',
-        'Skôr nesúhlasím s autorom',
-        'Úplne nesúhlasím s autorom'
-        ]"
+      [question] = "ss.getAll('myOpinion')"
       (answer) = "onAnswer3($event)"
     ></app-button-question>
   </mat-card-actions>
@@ -54,11 +43,11 @@
 
 <mat-card *ngIf="state==3"  class="example-card">
   <mat-card-header>
-    <mat-card-title>KTO je autor</mat-card-title>
+    <mat-card-title>{{'annotation.author1' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <mat-form-field class="example-full-width">
-      <mat-label>Autor článku</mat-label>
+      <mat-label>{{'annotation.author2' | translate}}</mat-label>
       <input matInput type="text" [(ngModel)]="document.author" autocomplete="off">
       <button mat-button *ngIf="document.author" matSuffix mat-icon-button aria-label="Clear" (click)="document.author=''">
         <mat-icon>close</mat-icon>
@@ -66,22 +55,17 @@
     </mat-form-field>
     <button mat-button
     *ngIf="shouldContinue && document.author && document.author.length >= 2"
-    (click)="next()">Ďalej</button>
+    (click)="next()">{{ss.getA('next')}}</button>
   </mat-card-actions>
 </mat-card>
 
 <mat-card *ngIf="state==4"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Viac o autorovi</mat-card-title>
+    <mat-card-title>{{'annotation.moreAuthor' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-button-question
-      [question] = "[
-        'Našiel som jeho ďalšiu tvorbu, ale autor sa tejto téme bežne nevenuje',
-        'Autor sa rovnakej téme venuje dlhšiu dobu',
-        'Autora neviem vypátrať',
-        'Autor je dohľadateľný, ale nie je o jeho činnosti dostatok informácií'
-        ]"
+      [question] = "ss.getAll('moreAuthor')"
       (answer) = "onAnswer5($event)"
     ></app-button-question>
   </mat-card-actions>
@@ -89,11 +73,11 @@
 
 <mat-card *ngIf="state==5"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Zdroj príspevku</mat-card-title>
+    <mat-card-title>{{'annotation.source1' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <mat-form-field class="example-full-width">
-      <mat-label>Zdroj</mat-label>
+      <mat-label>{{'annotation.source2' | translate}}</mat-label>
       <input matInput type="text" [(ngModel)]="document.source" autocomplete="off">
       <button mat-button *ngIf="document.source" matSuffix mat-icon-button aria-label="Clear" (click)="document.source=''">
         <mat-icon>close</mat-icon>
@@ -101,17 +85,17 @@
     </mat-form-field>
     <button mat-button
     *ngIf="shouldContinue && document.source && document.source.length > 2"
-    (click)="next()">Ďalej</button>
+    (click)="next()">{{ss.getA('next')}}</button>
   </mat-card-actions>
 </mat-card>
 
 <mat-card *ngIf="state==6"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Kto stojí za webovou stránkou</mat-card-title>
+    <mat-card-title>{{'annotation.owner1' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <mat-form-field class="example-full-width">
-      <mat-label>Prevádzkovateľ</mat-label>
+      <mat-label>{{'annotation.owner2' | translate}}</mat-label>
       <input matInput type="text" [(ngModel)]="document.source_owner" autocomplete="off">
       <button mat-button *ngIf="document.source_owner" matSuffix mat-icon-button aria-label="Clear" (click)="document.source_owner=''">
         <mat-icon>close</mat-icon>
@@ -119,13 +103,13 @@
     </mat-form-field>
     <button mat-button
     *ngIf="shouldContinue && document.source_owner && document.source_owner.length >=2"
-    (click)="next()">Ďalej</button>
+    (click)="next()">{{ss.getA('next')}}</button>
   </mat-card-actions>
 </mat-card>
 
 <mat-card *ngIf="state==7"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Na aký účel stránka aktuálne slúži?</mat-card-title>
+    <mat-card-title>{{'annotation.mainAim' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-free-text-checkboxes-question
@@ -137,7 +121,7 @@
 
 <mat-card *ngIf="state==8"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Dôveryhodnosť</mat-card-title>
+    <mat-card-title>{{'annotation.credibility' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-scale-question
@@ -150,7 +134,7 @@
 
 <mat-card *ngIf="state==9"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Predmet a cieľ príspevku:</mat-card-title>
+    <mat-card-title>{{'annotation.aim' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-free-text-checkboxes-question
@@ -162,11 +146,11 @@
 
 <mat-card *ngIf="state==10"  class="example-card">
   <mat-card-header>
-    <mat-card-title>S akými zdrojmi a materiálmi autor pracoval?</mat-card-title>
+    <mat-card-title>{{'annotation.references1' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <mat-form-field class="example-full-width">
-      <mat-label>Referencie</mat-label>
+      <mat-label>{{'annotation.references2' | translate}}</mat-label>
       <input matInput type="text" [(ngModel)]="document.references" autocomplete="off">
       <button mat-button *ngIf="document.references" matSuffix mat-icon-button aria-label="Clear" (click)="document.references=''">
         <mat-icon>close</mat-icon>
@@ -174,14 +158,14 @@
     </mat-form-field>
     <button mat-button
     *ngIf="shouldContinue && document.references && document.references.length >= 2"
-    (click)="next()">Ďalej</button>
+    (click)="next()">{{ss.getA('next')}}</button>
   </mat-card-actions>
 </mat-card>
 
 
 <mat-card *ngIf="state==11"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Akými prostriedkami sa autor snaží zaujať?</mat-card-title>
+    <mat-card-title>{{'annotation.tools' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-expandable-checkboxes-question
@@ -193,11 +177,11 @@
 
 <mat-card *ngIf="state==12"  class="example-card">
   <mat-card-header>
-    <mat-card-title>KOMU je príspevok určený?</mat-card-title>
+    <mat-card-title>{{'annotation.who1' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <mat-form-field class="example-full-width">
-      <mat-label>Pre koho</mat-label>
+      <mat-label>{{'annotation.who2' | translate}}</mat-label>
       <input matInput type="text" [(ngModel)]="document.to_who" autocomplete="off">
       <button mat-button *ngIf="document.to_who" matSuffix mat-icon-button aria-label="Clear" (click)="document.to_who=''">
         <mat-icon>close</mat-icon>
@@ -205,17 +189,17 @@
     </mat-form-field>
     <button mat-button
     *ngIf="shouldContinue && document.to_who && document.to_who.length >=2"
-    (click)="next()">Ďalej</button>
+    (click)="next()">{{ss.getA('next')}}</button>
   </mat-card-actions>
 </mat-card>
 
 <mat-card *ngIf="state==13"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Je článok cielený aj na teba?</mat-card-title>
+    <mat-card-title>{{'annotation.me' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-button-question
-      [question] = "['áno','nie','neviem']"
+      [question] = "ss.getAll('yesno')"
       (answer) = "onAnswer10($event)"
     ></app-button-question>
   </mat-card-actions>
@@ -224,7 +208,7 @@
 
 <mat-card *ngIf="state==14"  class="example-card">
   <mat-card-header>
-    <mat-card-title>PREČO bola táto informácia (príspevok) vytvorený?</mat-card-title>
+    <mat-card-title>{{'annotation.why' | translate}}</mat-card-title>
   </mat-card-header>
   <mat-card-actions class="action">
     <app-free-text-checkboxes-question
@@ -236,7 +220,7 @@
 
 <mat-card *ngIf="state==15"  class="example-card">
   <mat-card-header>
-    <mat-card-title>Pridať nový dokument</mat-card-title>
+    <mat-card-title>{{'annotation.add' | translate}}</mat-card-title>
   </mat-card-header>
 
   <!-- <mat-card-content>
@@ -275,8 +259,8 @@
   {{document.url}}
   <mat-card-actions class="action">
     <button mat-button
-    (click)="create()">Vytvoriť</button>
+    (click)="create()">{{'annotation.create' | translate}}</button>
     <button mat-button
-    (click)="cancel()">Zrušiť</button>
+    (click)="cancel()">{{'annotation.cancel' | translate}}</button>
   </mat-card-actions>
 </mat-card>

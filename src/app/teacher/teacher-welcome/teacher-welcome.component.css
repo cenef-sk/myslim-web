@@ -1,7 +1,14 @@
 .teacher-welcome {
   margin: 90px;
+  margin-top: 60px;
+}
+.teacher-welcome h1 {
+  text-align: center;
 }
 
+.t-intro {
+  font-size: 25px;
+}
 .guide {
   width: 100%;
 }

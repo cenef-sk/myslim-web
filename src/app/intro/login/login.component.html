@@ -21,6 +21,9 @@
           {{'login.hint3' | translate}}
         </mat-error>
       </mat-form-field>
+      <mat-error *ngIf="error">
+        {{'login.hint4' | translate}}
+      </mat-error>
     </form>
   </mat-card-content>
   <mat-card-actions class="action">

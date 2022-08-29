@@ -62,6 +62,6 @@ onInputChange(event) {
   nextAction(){
     console.log(this.input)
 
-    this.answer.emit([this.input, this.formatLabel()]);
+    this.answer.emit([this.input, this.label]);
   }
 }

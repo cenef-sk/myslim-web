@@ -13,14 +13,4 @@ export class TeacherWelcomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  lng_specific(file) {
-    const lng = this.translate.currentLang;
-    const path = (lng, file) => "/assets/lngs/" + lng + "/" + file;
-    switch(lng) {
-      case "CZ": return path("cz", file);
-      case "EN": return path("en", file);;
-      default: return path("sk", file);;
-    }
-  }
-
 }

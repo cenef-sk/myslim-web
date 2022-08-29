@@ -5,7 +5,7 @@
    (opened)="curr = document._id">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{i + 1}}. Dokument 
+        {{i + 1}}. {{'doc.data.doc' | translate}}
       </mat-panel-title>
       <mat-panel-description>
         {{document.data.url}}
@@ -13,22 +13,22 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <div class="answers">
-    <p><a [href]="document.data.url" target="_blank">otvoriť stránku v novom okne</a></p>
-    <p>URL: <b>{{s(document.data.url)}}</b></p>
-    <p>Postoj autora: <b>{{t(1, document.data.author_opinion)}}</b></p>
-    <p>Postoj respondenta: <b>{{t(2, document.data.agree_with_author)}}</b></p>
-    <p>Autor: <b>{{s(document.data.author)}}</b></p>
-    <p>Viac o autorovi: <b>{{t(3, document.data.author_additional)}}</b></p>
-    <p>Zdroj príspevku: <b>{{s(document.data.source)}}</b></p>
-    <p>Kto stojí za webovou stránkou: <b>{{s(document.data.source_owner)}}</b></p>
-    <p>Na aký účel stránka aktuálne slúži?: <b>{{t(4, document.data.main_aim)}}</b></p>
-    <p>Dôveryhodnosť(0-10): <b>{{t(5, document.data.credibility)}}</b></p>
-    <p>Predmet a cieľ príspevku: <b>{{t(6, document.data.content_aim)}}</b></p>
-    <p>S akými zdrojmi a materiálmi autor pracoval?: <b>{{s(document.data.references)}}</b></p>
-    <p>Akými prostriedkami sa autor snaží zaujať?: <b>{{t(7, document.data.tools)}}</b></p>
-    <p>KOMU je príspevok určený?: <b>{{s(document.data.to_who)}}</b></p>
-    <p>Cielený aj na respondenta: <b>{{t(8, document.data.me)}}</b></p>
-    <p>PREČO bola táto informácia (príspevok) vytvorený? : <b>{{t(9, document.data.why)}}</b></p>
+    <p><a [href]="document.data.url" target="_blank">{{'doc.data.open' | translate}}</a></p>
+    <p>{{'doc.data.url' | translate}}: <b>{{s(document.data.url)}}</b></p>
+    <p>{{'doc.data.authorOpinion' | translate}}: <b>{{t(1, document.data.author_opinion)}}</b></p>
+    <p>{{'doc.data.respondentOpinion' | translate}}: <b>{{t(2, document.data.agree_with_author)}}</b></p>
+    <p>{{'doc.data.author' | translate}}: <b>{{s(document.data.author)}}</b></p>
+    <p>{{'doc.data.authorMore' | translate}}: <b>{{t(3, document.data.author_additional)}}</b></p>
+    <p>{{'doc.data.source' | translate}}: <b>{{s(document.data.source)}}</b></p>
+    <p>{{'doc.data.owner' | translate}}: <b>{{s(document.data.source_owner)}}</b></p>
+    <p>{{'doc.data.mainAim' | translate}}: <b>{{t(4, document.data.main_aim)}}</b></p>
+    <p>{{'doc.data.credibility' | translate}}: <b>{{t(5, document.data.credibility)}}</b></p>
+    <p>{{'doc.data.contentAim' | translate}}: <b>{{t(6, document.data.content_aim)}}</b></p>
+    <p>{{'doc.data.references' | translate}}: <b>{{s(document.data.references)}}</b></p>
+    <p>{{'doc.data.tools' | translate}}: <b>{{t(7, document.data.tools)}}</b></p>
+    <p>{{'doc.data.who' | translate}}: <b>{{s(document.data.to_who)}}</b></p>
+    <p>{{'doc.data.me' | translate}}: <b>{{t(8, document.data.me)}}</b></p>
+    <p>{{'doc.data.why' | translate}}: <b>{{t(9, document.data.why)}}</b></p>
     </div>
     <!-- <mat-action-row>
       <button mat-button color="primary" (click)="nextStep()">Next</button>

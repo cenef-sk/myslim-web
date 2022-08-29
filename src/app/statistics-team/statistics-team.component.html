@@ -6,12 +6,12 @@
 </div> -->
 <div *ngIf="dataOk()" class="summary-description-wrapper">
   <div class="summary-description">
-    <h2>Prehľad pre tému {{trial.topic.name}}</h2>
+    <h2>{{'stat.title' | translate}} {{trial.topic.name}}</h2>
     <div>
-      Zberu dát sa zúčastnilo {{trial.count}} respondentov, ktorí vložili {{documents.length}} dokumentov.
+      {{info()}}
     </div>
     <div>
-      Nasledujúce grafy zobrazujú príspevky jednotlivých účastníkov a pohľad na jednotlivé články.
+      {{'stat.info2' | translate}}
     </div>
   </div>
 </div>
@@ -28,7 +28,7 @@
                        (closed)="sourcesState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Zdroje
+        {{'stat.sources' | translate}}
       </mat-panel-title>
       <!-- <mat-panel-description>
         {{questionaireOpenState ? '' : 'questionaireOpenState'}}
@@ -46,7 +46,7 @@
                        (closed)="urlState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Zoznam všetkých dokumentov
+        {{'stat.all' | translate}}
       </mat-panel-title>
       <!-- <mat-panel-description>
         {{questionaireOpenState ? '' : 'questionaireOpenState'}}
@@ -62,7 +62,7 @@
 <div class="summary-description-wrapper">
   <div class="charts">
   <div *ngIf="dataOk() && isClimatic" class="chart">
-    <div class="title">Výber témy</div>
+    <div class="title">{{'stat.topic' | translate}}</div>
     <canvas baseChart
             [data]="labels4Data"
             [labels]="labels4"
@@ -70,14 +70,14 @@
   </div>
 
   <div *ngIf="dataOk() && labels1Data" class="chart">
-    <div class="title">Postoj autora k téme</div>
+    <div class="title">{{'stat.opinion' | translate}}</div>
     <canvas baseChart
             [data]="labels1Data"
             [labels]="labels1"
             [chartType]="pieChartType"></canvas>
   </div>
   <div *ngIf="dataOk() && labels3Data" class="chart">
-    <div class="title">Súhlas s autorom</div>
+    <div class="title">{{'stat.agree' | translate}}</div>
     <canvas baseChart
             [data]="labels3Data"
             [labels]="labels3"
@@ -93,7 +93,7 @@
     </canvas>
   </div> -->
    <div *ngIf="dataOk() && labels2Data" class="chart">
-    <div class="title">Hlavné prostriedky autorov</div>
+    <div class="title">{{'stat.tools' | translate}}</div>
     <canvas baseChart
       [datasets]="barChartData"
       [labels]="barChartLabels"
@@ -116,5 +116,5 @@
 </div>
 
 <app-display-participants
-[noParticipantTitle]="'Momentálne nemáte žiadného respondenta.'"
+[noParticipantTitle]="'stat.no'|translate"
 [trialId]="trialId"></app-display-participants>

@@ -5,15 +5,15 @@
     title="Ukončiť chat" (click)="exit()">
       <mat-icon>keyboard_backspace</mat-icon>
     </button>
-    <span class="chat-title">Tomáš - {{globals.user.name}}</span>
+    <span class="chat-title">Tomáš - {{name}}</span>
     <span class="spacer"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu3" matSuffix mat-icon-button aria-label="Clear"
-    title="Moje dokumenty">
+    [title]="'mobile.docs' | translate">
       <mat-icon matBadge="{{documents.length}}" matBadgeColor="primary">article</mat-icon>
     </button>
     <mat-menu #menu3="matMenu" xPosition="before" class="chat-activities">
       <mat-action-list class="activities">
-        <div mat-subheader>Tvoje dokumenty</div>
+        <div mat-subheader>{{'mobile.docs' | translate}}</div>
         <mat-list-item *ngFor="let document of documents">
           <mat-icon mat-list-icon>receipt</mat-icon>
           <!-- <mat-icon mat-list-icon>picture_as_pdf</mat-icon> -->
@@ -29,7 +29,7 @@
         </mat-list-item> -->
       </mat-action-list>
     </mat-menu>
-    <button mat-icon-button [matMenuTriggerFor]="menu2" matSuffix mat-icon-button aria-label="Clear"
+    <!-- <button mat-icon-button [matMenuTriggerFor]="menu2" matSuffix mat-icon-button aria-label="Clear"
     title="Záchytné body">
       <mat-icon matBadge="{{globals.world.anchors.length}}" matBadgeColor="{{(globals.world.anchors.length)?'warn':'primary'}}">anchor</mat-icon>
     </button>
@@ -43,8 +43,8 @@
           <div mat-line>{{anchor.text}}</div>
         </mat-list-item>
       </mat-action-list>
-    </mat-menu>
-    <button *ngIf="testEnvironment" mat-icon-button [matMenuTriggerFor]="menu"  matSuffix mat-icon-button aria-label="Clear"
+    </mat-menu> -->
+    <!-- <button *ngIf="testEnvironment" mat-icon-button [matMenuTriggerFor]="menu"  matSuffix mat-icon-button aria-label="Clear"
     title="Doporučené aktivity">
       <mat-icon matBadge="{{globals.world.activities.length}}" matBadgeColor="{{(globals.world.activities.length)?'warn':'primary'}}">emoji_objects</mat-icon>
     </button>
@@ -57,10 +57,10 @@
           <mat-icon mat-list-icon>picture_as_pdf</mat-icon>
           <div mat-line>{{activity.name}}</div>
           <div mat-line>{{activity.text}}</div>
-        </mat-list-item>
+        </mat-list-item> -->
         <!-- <mat-divider></mat-divider> -->
-      </mat-action-list>
-    </mat-menu>
+      <!-- </mat-action-list>
+    </mat-menu> -->
 
     <button mat-icon-button  [matMenuTriggerFor]="menu4" matSuffix mat-icon-button aria-label="Clear"
     title="Ostatné akcie">
@@ -70,7 +70,7 @@
       <mat-action-list class="activities">
         <mat-list-item (click)="exit()" >
           <mat-icon mat-list-icon>directions_walk</mat-icon>
-          <div mat-line>Ukončiť</div>
+          <div mat-line>{{'mobile.exit' | translate}}</div>
         </mat-list-item>
       </mat-action-list>
     </mat-menu>
@@ -79,9 +79,11 @@
   <div class="chat-content" #chatContainer>
 
     <div *ngFor="let message of chatHistory; let i = index" [ngClass]="(message.sender == ME)?'message-left':'message-right'">
-      <div mat-card-avatar [ngClass]="(message.sender == ME)?'example-header-image-you':'example-header-image-me'"
+      <div mat-card-avatar *ngIf="message.sender != ME" [ngClass]="(message.sender == ME)?'example-header-image-you':'example-header-image-me'"
       [ngStyle]="{'background-image': 'url(' + photo(message.sender == ME) + ')'}"
       ></div>
+      <div mat-card-avatar *ngIf="message.sender == ME" [ngClass]="'example-header-image-you'"
+      >{{name.charAt(0)}}</div>
       <div [ngClass]="(message.sender == ME)?'talk-bubble tri-right you':'talk-bubble tri-right me'">
         <div class="talktext">
           <p [innerHTML]="message.message"></p>

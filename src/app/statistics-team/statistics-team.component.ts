@@ -6,6 +6,7 @@ import { MultiDataSet, Label } from 'ng2-charts';
 import { ChartOptions, ChartType, ChartDataSets, RadialChartOptions } from 'chart.js';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { MyslimService } from "../myslim.service";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-statistics-team',
@@ -25,7 +26,8 @@ export class StatisticsTeamComponent implements OnInit {
       private globals: Globals,
       private route: ActivatedRoute,
       private router: Router,
-      private myslimService: MyslimService
+      private myslimService: MyslimService,
+      private translate: TranslateService,
     ) { }
 
     ngOnInit() {
@@ -330,4 +332,7 @@ export class StatisticsTeamComponent implements OnInit {
       width: '500px'
     };
 
+    info(){
+      return(this.translate.instant('stat.info', {count: this.trial.count, docs: this.documents.length}))
+    }
 }

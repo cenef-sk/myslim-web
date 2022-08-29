@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DialogConfirmExitComponent } from "src/app/mobile/dialog-confirm-exit/dialog-confirm-exit.component";
 import { MatDialog } from "@angular/material";
 import { timeStamps, diffTime } from "src/utils/diffTime";
+import { SharedService } from "src/app/shared.service";
 
 @Component({
   selector: 'app-documents-form',
@@ -52,9 +53,14 @@ export class DocumentsFormComponent implements OnInit {
     private myslimService: MyslimService,
     private route: ActivatedRoute,
     public dialog: MatDialog,
-    private router: Router
-  ) { }
+    private router: Router,
+    private sharedService: SharedService,
+  ) {
+  }
 
+  ngOnDestroy() {
+    this.sharedService.lngSelector = true;
+  }
   ngOnInit() {
     // if(!this.globals.world.participant || !this.globals.world.participant._id) {
     //   this.router.navigate(['/']);
@@ -63,6 +69,9 @@ export class DocumentsFormComponent implements OnInit {
     this.trialId = this.route.snapshot.paramMap.get('trialId');
     if (this.trialId) {
       this.isTeacher = true;
+    }
+    if (!this.isTeacher) {
+      this.sharedService.lngSelector = false;
     }
     this.participantId = this.route.snapshot.paramMap.get('id');
     console.log(this.participantId)

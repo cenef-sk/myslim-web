@@ -119,6 +119,12 @@ ul {
   position: absolute;
   top: 45px;
   right: 10px;
+  background-color: #288BA8;/*#746AB0;*/
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .message-right {

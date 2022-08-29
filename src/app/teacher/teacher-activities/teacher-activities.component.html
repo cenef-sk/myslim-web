@@ -1,5 +1,6 @@
 <div class="activities">
   <h3>{{'data.activities.title' | translate}}</h3>
+  <a [href]="'data.activities.publicationLink' | translate" target="_blank">{{'data.activities.publicationDownload' | translate}}</a>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.

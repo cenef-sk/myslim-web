@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MyslimService } from '../../myslim.service';
 
 import { diffTime, timeStamps } from "src/utils/diffTime";
+import { SharedService } from "src/app/shared.service";
 
 @Component({
   selector: 'app-display-documents',
@@ -45,44 +46,28 @@ export class DisplayDocumentsComponent implements OnInit {
       t(type, obj) {
         if (obj) {
           if (type == 1) {
-            let data = [
-            "---",
-            "Autor úplne nesúhlasí s tvrdením",
-            "Autor skôr nesúhlasí s tvrdením",
-            "Autor zaujal neutralny postoj k téme",
-            "Autor skôr súhlasí s tvrdením",
-            "Autor úplne súhlasí s tvrdením",
-          ];
+            let data = ["---"].concat(this.ss.getAll('authorsOpinion').reverse())
             return data[obj];
           }
           if (type == 2) {
            let data = [
            "---",
-           "Úplne nesúhlasím s autorom",
-           "Skôr nesúhlasím s autorom",
+           this.ss.getA('myOpinion',3),
+           this.ss.getA('myOpinion',2),
            "---",
-           "Skôr súhlasím s autorom",
-           "Úplne súhlasím s autorom",
+           this.ss.getA('myOpinion',1),
+           this.ss.getA('myOpinion',0),
           ]
           return data[obj];
           }
           if (type == 3) {
-           let data = [
-           "---",
-           "Našiel som jeho ďalšiu tvorbu, ale autor sa tejto téme bežne nevenuje",
-           "Autor sa rovnakej téme venuje dlhšiu dobu",
-           "Autora neviem vypátrať",
-           "Autor je dohľadateľný, ale nie je o jeho činnosti dostatok informácií",
-          ]
+           let data = ["---"].concat(this.ss.getAll('moreAuthor'))
           return data[obj];
           }
           if (type == 4) {
-           let data = [ "Odborné informácie", "zábava",  "blog"
-, "osobné prezentovanie", "spravodajstvo", "Propagácia (reklama)", "diskusné fórum",
-"sociálna sieť", "zastrašovanie", "iné"]
-          let res = this.buildFromCheck(data, obj);
-
-          return res;
+           let data = this.ss.getAll('ucel')
+           let res = this.buildFromCheck(data, obj);
+           return res;
           }
           if (type == 5) {
           let res = this.formatLabel(obj);
@@ -90,34 +75,23 @@ export class DisplayDocumentsComponent implements OnInit {
           return res;
           }
           if (type == 6) {
-           let data = [ "Informovať",  "Pobaviť",  "Vyjadriť názor"
-,  "Zastrašiť",  "Vyvolať rozruch",  "Propagovať (výrobok, službu, osobnosť, polit. stranu)",
- "Diskutovať",  "Osveta",
-              "iné"]
+           let data = this.ss.getAll('ciel')
           let res = this.buildFromCheck(data, obj);
 
           return res;
           }
           if (type == 7) {
-           let data = [
-              "obrázky",  "videá",  "štatistiky",  "clickbajty", "text a hovorené slovo"
-           ]
+           let data = this.ss.getAll('zaujat')
           let res = this.buildFromCheck(data, obj);
 
           return res;
           }
           if (type == 8) {
-           let data = ["---", "áno", "nie", "neviem"]
+           let data = ["---"].concat(this.ss.getAll('yesno'))
            return data[obj];
           }
           if (type == 9) {
-           let data = [
-              "legislatíva (plánujú sa zmeny v zákonoch)",
-               "informovanie (uviesť čitateľa do problematiky)",
-               "propagácia (uvádza sa nový produkt na trh)",
-               "zvýšenie návštevnosti stránky (clickbajty)",
-               "Iné"
-           ]
+           let data = this.ss.getAll('preco')
           let res = this.buildFromCheck(data, obj);
 
           return res;
@@ -128,7 +102,7 @@ export class DisplayDocumentsComponent implements OnInit {
       }
 
       formatLabel(value) {
-      const labels = ["absolútne nedôveryhodný", "nedôveryhodný", "neviem", "dôveryhodný",  "absolútne dôveryhodný"];
+      const labels = this.ss.getAll('credibility');
       let res;
       switch(true){
         case (value>=9):
@@ -185,14 +159,15 @@ export class DisplayDocumentsComponent implements OnInit {
       constructor(
         private globals: Globals,
         private router: Router,
-        private myslimService: MyslimService
-      ) { }
+        private myslimService: MyslimService,
+        private ss: SharedService,
+      ) {
+      }
 
       ngOnInit() {
         this.loadData();
         this.displayedColumns = ['radio', 'index','url', 'id'];
       }
-
 
       docTimes = [];
 

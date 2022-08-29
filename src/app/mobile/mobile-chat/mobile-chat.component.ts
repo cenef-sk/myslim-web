@@ -17,6 +17,7 @@ import story from "src/data/smart-stories/updated-climate2/climate.json"
 import storySK from "src/data/smart-stories/all/climateSK.json"
 import storyEN from "src/data/smart-stories/all/climateEN.json"
 import storyCZ from "src/data/smart-stories/all/climateCZ.json"
+import { TranslateService } from "@ngx-translate/core";
 
 const WRITING_DELAY = 2500; // check how it works
 const BEFORE_WRITING_DELAY = 1500;
@@ -82,15 +83,26 @@ export class MobileChatComponent implements OnInit {
   toResolve = null;
   trial
 
+  name = "";
+
   constructor(
     private router: Router,
     private globals: Globals,
     private myslimService: MyslimService,
     public dialog: MatDialog,
+    private translate: TranslateService,
     @Inject('LOCALSTORAGE') public local,
   ) {
   }
 
+  public languages = ["SK", "CZ", "EN"];
+
+  setLanguage(){
+    let savedLocale = this.local.getItem('locale');
+    if (savedLocale) {
+      this.translate.use(savedLocale);
+    }
+  }
 
   //TODO check if
   preventExit(event) {
@@ -101,6 +113,7 @@ export class MobileChatComponent implements OnInit {
   }
   ngOnInit() {
     window.addEventListener('beforeunload', this.preventExit);
+    this.setLanguage();
 
 
       //TODO remove if correctly exited.
@@ -145,6 +158,7 @@ export class MobileChatComponent implements OnInit {
             // let template = this.globals.world.template
             // let hypothesis = this.globals.world.hypothesis
             let name = this.globals.world.userName
+            this.name = name;
 
             if (topic.template == "chat-generic"){
               this.engine.world.setVariable("theme_name", "general")

@@ -5,6 +5,8 @@ import { MyslimService } from 'src/app/myslim.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { parseJwt } from 'src/utils/token';
 import { clearLocal } from 'src/utils/localStorage';
+import { TranslateService } from "@ngx-translate/core";
+import { SharedService } from "src/app/shared.service";
 
 @Component({
   selector: 'app-choose-player',
@@ -23,17 +25,47 @@ export class ChoosePlayerComponent implements OnInit {
     private myslimService: MyslimService,
     private router: Router,
     private route: ActivatedRoute,
+    private translate: TranslateService,
+    private sharedService: SharedService,
     @Inject('LOCALSTORAGE') public local,
   ) {
     if (globals.user) {
       this.userName = globals.user.name;
     }
+    // hide lng selection in toolbar
+    sharedService.lngSelector = false;
   }
+
+  ngOnDestroy() {
+    this.sharedService.lngSelector = true;
+  }
+
+  public languages = ["SK", "CZ", "EN"];
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.globals.trialId = this.id;
+    this.myslimService.getTrial(this.id).subscribe((data) => {
+      if(data && data.success && data.data && data.data[0] && data.data[0].topic && data.data[0].topic.language) {
+        let language = data.data[0].topic.language
+        if (language.startsWith("sk")) {
+          this.setLanguage(this.languages[0]);
+        } else if (language.startsWith("cz")) {
+          this.setLanguage(this.languages[1]);
+        } else {
+          this.setLanguage(this.languages[2]);
+        }
+      } else {
+        this.setLanguage(this.languages[0]);
+      }
+    })
   }
+
+  setLanguage(language){
+    this.translate.use(language);
+    this.local.setItem('locale', language)
+  }
+
   no() {
     clearLocal(this.local);
     this.globals.token = null;

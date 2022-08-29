@@ -17,7 +17,7 @@ export class FreeTextQuestionComponent implements OnInit {
   }
 
   nextAction(){
-    if (this.input.length > 2) {
+    if (this.input.length > 0) {
       // console.log(this.input)
 
       this.answer.emit(this.input);

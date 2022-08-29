@@ -47,7 +47,6 @@ import { DisplayTopicsComponent } from './data-providers/display-topics/display-
 import { DisplayTrialsComponent } from './data-providers/display-trials/display-trials.component';
 import { DisplayParticipantsComponent } from './data-providers/display-participants/display-participants.component';
 import { DisplayDocumentsComponent } from './data-providers/display-documents/display-documents.component';
-import { DisplayDocumentComponent } from './data-providers/display-document/display-document.component';
 import { QuillModule } from 'ngx-quill';
 import { TeacherLayoutComponent } from './teacher/teacher-layout/teacher-layout.component';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
@@ -141,7 +140,6 @@ import { ResetComponent } from './intro/reset/reset.component';
     DisplayTrialsComponent,
     DisplayParticipantsComponent,
     DisplayDocumentsComponent,
-    DisplayDocumentComponent,
     TeacherLayoutComponent,
     AdminLayoutComponent,
     StudentLayoutComponent,

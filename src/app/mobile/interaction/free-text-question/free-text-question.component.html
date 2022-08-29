@@ -1,6 +1,6 @@
 <mat-card-actions class="chat-actions">
   <mat-form-field class="example-full-width" autofilled="false" appearance="outline">
-    <input matInput placeholder="Tvoja odpoveď" autocomplete="off"
+    <input matInput [placeholder]="'dialog.answer' | translate" autocomplete="off"
     [(ngModel)]="input" (keyup.enter)="nextAction()">
     <button mat-button  matSuffix mat-icon-button aria-label="Send" (click)="nextAction()">
       <mat-icon>send</mat-icon>

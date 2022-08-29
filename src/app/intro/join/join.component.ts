@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Globals } from '../../globals';
 import { Router } from '@angular/router';
 import mustache from 'mustache';
 import { Validators, FormControl } from '@angular/forms';
 import { MyslimService } from 'src/app/myslim.service';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-join',
@@ -17,7 +18,7 @@ export class JoinComponent implements OnInit {
   constructor(
     private globals: Globals,
     private myslimService: MyslimService,
-    private router: Router
+    private router: Router,
   ) {
   }
 
@@ -46,6 +47,5 @@ export class JoinComponent implements OnInit {
     console.log(trial);
     this.join(trial._id)
   }
-
 
 }
